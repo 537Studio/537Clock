@@ -3,35 +3,11 @@
 #### 介绍
 537秒表（537Clock）是537工作室于2023年12月31日开发的一款Windows控制台应用程序，为命令行界面，有年月日时分秒显示、Unix时间戳显示、计时/清零、调色等功能。
 
-#### 软件架构
-软件架构说明
-
-
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+537秒表（537 Clock，537工作室2023年年度应用程序）
+Windows控制台应用程序
+发布于2023年12月31日
+最新正式版本：1.0（便携式：x64）
+使用语言：C++11
+开发环境：编辑器：Dev-C++ 5.11；编译器：TDM-GCC 4.9.2
+用于方便地进行计时、查看时间和Unix时间戳。
+To Do清单：支持倒计时；支持全屏显示时间
