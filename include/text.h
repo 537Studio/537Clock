@@ -23,6 +23,7 @@ using namespace std;
 SHSTDAPI_(HINSTANCE) ShellExecuteA (HWND hwnd, LPCSTR lpOperation, LPCSTR lpFile, LPCSTR lpParameters, LPCSTR lpDirectory, INT nShowCmd); 
 class FTSClock{
 	public:
+		size_t strftime(char* strDest,size_t maxsize,const char* format,const struct tm *timeptr);
 		time_t unixtime=time(NULL);
 		long long starttime=unixtime;
 		string copyright=TEXT("Copyright(C)537 Studio.2023-2024.");
@@ -36,6 +37,7 @@ void color();
 void PRESS_SPACE_TO_CONTINUE();
 void cls();
 void gotoxy(int x, int y);
+void ifcontrol();
 void control(){
 	FTSClock set;
 	Beep(si1,150);
@@ -51,7 +53,7 @@ void control(){
 	Sleep(80);
 	cout<<TEXT("按下按键以启用功能:\n");
 	Sleep(40);
-	cout<<"t";
+	cout<<endl<<"t";
 	Sleep(40);
 	cout<<TEXT(" 计时器清零\n");
 	Sleep(80);
@@ -214,9 +216,7 @@ void menu(){
 	Sleep(20);
 	cout<<TEXT("---------Unix时间戳(1970年1月1日距今)---");
 	Sleep(20);
-	cout<<TEXT("-计时------------");
-	Sleep(20);
-	cout<<TEXT("-----------长按空格键以暂停---\n");
+	cout<<TEXT("-计时--");
 }
 void PRESS_SPACE_TO_CONTINUE(){
 	cout<<TEXT("按空格键以继续...\n");
@@ -261,13 +261,13 @@ void about(){
 	Sleep(80);
 	cout<<TEXT("   537 Clock\t");
 	Sleep(30);
-	cout<<TEXT(" Version 1.1\t");
+	cout<<TEXT(" Version 1.1");
 	Sleep(30);
-	cout<<TEXT("By 537 Studio\t");
+	cout<<TEXT("\t537 Studio\t");
 	Sleep(30);
 	cout<<TEXT("www.537studio.com\n");
 	Sleep(30);
-	cout<<TEXT("    Copyright(C)537 Studio.\t2023-2024.");
+	cout<<TEXT("    Copyright(C)537 Studio. 2023-2024.");
 	Sleep(30);
 	cout<<TEXT(" All rights reserved.\n";)
 }
@@ -374,3 +374,10 @@ void gotoxy(int x, int y){
 	coord.Y = y;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
+void SetConsoleColor(WORD color) {  
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);  
+	SetConsoleTextAttribute(hConsole, color);  
+}
+void ifcontrol(){
+	if((GetAsyncKeyState(' ') & 0x8000)) control();
+}  
