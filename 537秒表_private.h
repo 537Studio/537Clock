@@ -12,12 +12,12 @@
 #define VER_BUILD	0
 #define COMPANY_NAME	"537 Studio"
 #define FILE_VERSION	"1.1.0.0"
-#define FILE_DESCRIPTION	"537Clock"
-#define INTERNAL_NAME	"537秒表"
-#define LEGAL_COPYRIGHT	"Copyright(C)537 Studio 2023-2024.All rights reserved."
-#define LEGAL_TRADEMARKS	"Copyright(C)537 Studio 2023-2024.All rights reserved."
-#define ORIGINAL_FILENAME	"537秒表"
-#define PRODUCT_NAME	"537秒表"
+#define FILE_DESCRIPTION	"537 Clock - Less is more"
+#define INTERNAL_NAME	"537 Clock"
+#define LEGAL_COPYRIGHT	"Copyright(C)537 Studio.2023-2024.All rights reserved."
+#define LEGAL_TRADEMARKS	"Copyright(C)537 Logo.2023-2024.All rights reserved."
+#define ORIGINAL_FILENAME	"FTS Clock"
+#define PRODUCT_NAME	"537 Clock"
 #define PRODUCT_VERSION	"1.1.0.0"
 
 #endif /*537秒表_PRIVATE_H*/

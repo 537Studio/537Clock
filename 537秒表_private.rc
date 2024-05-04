@@ -20,12 +20,12 @@ FILETYPE VFT_APP
     {
       VALUE "CompanyName", "537 Studio"
       VALUE "FileVersion", "1.1.0.0"
-      VALUE "FileDescription", "537Clock"
-      VALUE "InternalName", "537√Î±Ì"
-      VALUE "LegalCopyright", "Copyright(C)537 Studio 2023-2024.All rights reserved."
-      VALUE "LegalTrademarks", "Copyright(C)537 Studio 2023-2024.All rights reserved."
-      VALUE "OriginalFilename", "537√Î±Ì"
-      VALUE "ProductName", "537√Î±Ì"
+      VALUE "FileDescription", "537 Clock - Less is more"
+      VALUE "InternalName", "537 Clock"
+      VALUE "LegalCopyright", "Copyright(C)537 Studio.2023-2024.All rights reserved."
+      VALUE "LegalTrademarks", "Copyright(C)537 Logo.2023-2024.All rights reserved."
+      VALUE "OriginalFilename", "FTS Clock"
+      VALUE "ProductName", "537 Clock"
       VALUE "ProductVersion", "1.1.0.0"
     }
   }
