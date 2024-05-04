@@ -24,29 +24,29 @@ HostApplication=
 UseCustomMakefile=0
 CustomMakefile=
 CommandLine=
-Folders=
+Folders=include
 IncludeVersionInfo=1
 SupportXPThemes=0
 CompilerSet=2
 CompilerSettings=00000000c0000000000000000
-UnitCount=1
+UnitCount=3
 
 [VersionInfo]
 Major=1
-Minor=0
+Minor=1
 Release=0
 Build=0
 LanguageID=2052
 CharsetID=1252
 CompanyName=537 Studio
-FileVersion=1.0.0.0
-FileDescription=537秒表主程序
+FileVersion=1.1.0.0
+FileDescription=537Clock
 InternalName=537秒表
 LegalCopyright=Copyright(C)537 Studio 2023-2024.All rights reserved.
 LegalTrademarks=Copyright(C)537 Studio 2023-2024.All rights reserved.
 OriginalFilename=537秒表
 ProductName=537秒表
-ProductVersion=1.0.0.0
+ProductVersion=1.1.0.0
 AutoIncBuildNr=0
 SyncProduct=1
 
@@ -54,6 +54,26 @@ SyncProduct=1
 FileName=main.cpp
 CompileCpp=1
 Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit3]
+FileName=include\text.h
+CompileCpp=1
+Folder=include
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit2]
+FileName=include\about.h
+CompileCpp=1
+Folder=include
 Compile=1
 Link=1
 Priority=1000

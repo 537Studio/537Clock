@@ -5,19 +5,19 @@
 #define 537秒表_PRIVATE_H
 
 /* VERSION DEFINITIONS */
-#define VER_STRING	"1.0.0.0"
+#define VER_STRING	"1.1.0.0"
 #define VER_MAJOR	1
-#define VER_MINOR	0
+#define VER_MINOR	1
 #define VER_RELEASE	0
 #define VER_BUILD	0
 #define COMPANY_NAME	"537 Studio"
-#define FILE_VERSION	"1.0.0.0"
-#define FILE_DESCRIPTION	"537秒表主程序"
+#define FILE_VERSION	"1.1.0.0"
+#define FILE_DESCRIPTION	"537Clock"
 #define INTERNAL_NAME	"537秒表"
 #define LEGAL_COPYRIGHT	"Copyright(C)537 Studio 2023-2024.All rights reserved."
 #define LEGAL_TRADEMARKS	"Copyright(C)537 Studio 2023-2024.All rights reserved."
 #define ORIGINAL_FILENAME	"537秒表"
 #define PRODUCT_NAME	"537秒表"
-#define PRODUCT_VERSION	"1.0.0.0"
+#define PRODUCT_VERSION	"1.1.0.0"
 
 #endif /*537秒表_PRIVATE_H*/
