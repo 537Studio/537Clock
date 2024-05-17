@@ -11,7 +11,7 @@ ResourceIncludes=
 MakeIncludes=
 Compiler=
 CppCompiler=
-Linker=
+Linker=-lwinmm_@@_
 IsCpp=1
 Icon=537√Î±Ì.ico
 ExeOutput=
@@ -29,7 +29,7 @@ IncludeVersionInfo=1
 SupportXPThemes=0
 CompilerSet=2
 CompilerSettings=00000000c0000000000000000
-UnitCount=3
+UnitCount=4
 
 [VersionInfo]
 Major=1
@@ -72,6 +72,16 @@ BuildCmd=
 
 [Unit2]
 FileName=include\about.h
+CompileCpp=1
+Folder=include
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit4]
+FileName=include\music.h
 CompileCpp=1
 Folder=include
 Compile=1

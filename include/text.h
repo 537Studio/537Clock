@@ -23,15 +23,17 @@
 // '&'运算符将结果与0x8000进行按位与操作，判断最低位是否为1
 #define KEY(key) (GetAsyncKeyState(key) & 0x8000) 
 
-#define WAIT_PRESS_SPACE_AND_RETURN() for(;;){   \
+#define WAIT_PRESS_SPACE_AND_RETURN() cout<<"按空格键以继续...";	\
+						for(;;){   \
 							if(KEY(' ')){   \
 								menu();     \
 								return;   \
 							}	\
 							Sleep(25);  \
 						}
-#define WAIT_PRESS_ENTER_AND_RETURN() for(;;){   \
-							if(KEY(' ')){   \
+#define WAIT_PRESS_ENTER_AND_RETURN() cout<<"按回车键以继续...";	\
+						for(;;){   \
+							if(KEY(VK_RETURN)){   \
 								menu();     \
 								return;   \
 							}	\
@@ -81,7 +83,7 @@ void control(){
 	print_sleep("\n\n\n>>暂停面板------------", 25);
 	print_sleep("------------------", 25, 2);
 	print_sleep("----------------------\n", 80);
-	print_sleep("按下按键以启用功能:\n\n", 40);
+	print_sleep("\n按下按键以启用功能:\n\n", 40);
 	print_sleep("t 计时器清零\n", 80);
 	print_sleep("a 关于\n", 80);
 	print_sleep("c 调色(待开发)\n", 80);
@@ -216,7 +218,7 @@ void control(){
 void menu(){
 	print_sleep(TEXT("\n>年---月--日---时--分--秒--------"),20);
 	print_sleep(TEXT("---------Unix时间戳(1970年1月1日距今)---"),20);
-	print_sleep(TEXT("-计时--"),0);
+	print_sleep(TEXT("-计时--\n"),0);
 }
 void PRESS_ENTER_TO_CONTINUE(){
 	//功能相似的宏WAIT_PRESS_ENTER_AND_RETURN() 
@@ -281,7 +283,7 @@ void color(){
 	Beep(so1,155);
 	Beep(so1,155);
 	Sleep(50);
-	
+	/*
 	map<char, string> color_list{     //这个是颜色表
 		{'1', "蓝色  "}, {'2', "绿色  "}, {'3', "浅绿色"},
 		{'4', "红色  "}, {'5', "紫色  "}, {'6', "黄色  "},
@@ -289,8 +291,11 @@ void color(){
 		{'A', "淡绿色"}, {'B', "淡浅绿"}, {'C', "淡红色"},
 		{'D', "淡紫色"}, {'E', "淡黄色"}, {'F', "亮白色"}
 	};
-	
+	*/
 	print_sleep("设置537秒表文字颜色\n\n",50);
+	
+	
+	/*
 	int num = 1;
 	for(auto colors : color_list){  //遍历并输出颜色表
 		string content;
@@ -301,9 +306,23 @@ void color(){
 		print_sleep((num%2==0)?"\n":"\t",(num%2==0)?25:0);
 		num++;
 	}
+	*/
 	print_sleep("\n\n当537秒表重启后，显示颜色会重置为默认颜色。\n", 50);
 	cout<<"\n>537>>更改背景色>请按下对应颜色的按键>";
 	
+	while(true){
+		if(key("1")){
+			SetConsoleColor(FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+			return;
+		}else if(key("2")){
+			SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+			return;
+		}else if(key("3")){
+			SetConsoleColor(FOREGROUND_GREEN | FORGROUND_BLUE | FOREGROUND_INTENSITY);
+			return;
+		}else 
+	}
+	/* 
 	while(true){
 		for(auto k : color_list){
 			if (KEY(k.first)){
@@ -318,6 +337,7 @@ void color(){
 		} 
 		Sleep(10);
 	}
+	*/
 }
 void cls(){
 	for(int i=0;i<50;i++){
