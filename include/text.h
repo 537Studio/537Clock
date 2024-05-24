@@ -5,6 +5,7 @@
 #include <windows.h>
 #include <winapifamily.h>
 #include <ShellApi.h>
+#include "music.h"
 #define do1 261.626
 #define re1 293.665
 #define mi1 329.629
@@ -23,17 +24,15 @@
 // '&'运算符将结果与0x8000进行按位与操作，判断最低位是否为1
 #define KEY(key) (GetAsyncKeyState(key) & 0x8000) 
 
-#define WAIT_PRESS_SPACE_AND_RETURN() cout<<"按空格键以继续...";	\
-						for(;;){   \
+#define WAIT_PRESS_SPACE_AND_RETURN() for(;;){   \
 							if(KEY(' ')){   \
 								menu();     \
 								return;   \
 							}	\
 							Sleep(25);  \
 						}
-#define WAIT_PRESS_ENTER_AND_RETURN() cout<<"按回车键以继续...";	\
-						for(;;){   \
-							if(KEY(VK_RETURN)){   \
+#define WAIT_PRESS_ENTER_AND_RETURN() for(;;){   \
+							if(KEY(' ')){   \
 								menu();     \
 								return;   \
 							}	\
@@ -75,45 +74,91 @@ void cls();
 
 void gotoxy(int x, int y);
 
+void SetConsoleColor(WORD color);
+
 void control(){
 	FTSClock set;
+	/*
 	Beep(si1,150);
 	Beep(do1,300);
+	*/
+	MusicPlayer bgm;
+	bgm.play("[5^ 3_] [5^ 1 1]");
 	
-	print_sleep("\n\n\n>>暂停面板------------", 25);
+	print_sleep("\n\n>>暂停面板------------", 25);
 	print_sleep("------------------", 25, 2);
 	print_sleep("----------------------\n", 80);
 	print_sleep("\n按下按键以启用功能:\n\n", 40);
-	print_sleep("t 计时器清零\n", 80);
-	print_sleep("a 关于\n", 80);
-	print_sleep("c 调色(待开发)\n", 80);
-	print_sleep("w 打开537工作室官方网站\n", 80);
-	print_sleep("h 打开在线网站帮助文档\n", 80);
-	print_sleep("e 电子邮件\n", 80);
-	print_sleep("l 用户协议\n", 80);
-	print_sleep("o 开源网站\n", 80);
-	print_sleep("s 清空屏幕\n", 80);
-	print_sleep("x 继续计时\n", 80);
-	print_sleep("q 退出软件\n", 80);
+	
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	cout<<TEXT("t");
+	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	print_sleep(" 计时器清零\n", 80);
+	
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	cout<<TEXT("a");
+	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	print_sleep(" 关于\n", 80);
+	
+	/* TODO (#1#): 加入调色功能 */
+	//print_sleep("c 调色\n", 80);
+	
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	cout<<TEXT("w");
+	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	print_sleep(" 打开537工作室官方网站\n", 80);
+	
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	cout<<TEXT("h");
+	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	print_sleep(" 打开在线网站帮助文档\n", 80);
+	
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	cout<<TEXT("e");
+	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	print_sleep(" 电子邮件\n", 80);
+	
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	cout<<TEXT("l");
+	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	print_sleep(" 用户协议\n", 80);
+	
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	cout<<TEXT("o");
+	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	print_sleep(" 开源网站\n", 80);
+	
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	cout<<TEXT("s");
+	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	print_sleep(" 清空屏幕\n", 80);
+	
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	cout<<TEXT("x");
+	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	print_sleep(" 继续计时\n", 80);
+	
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	cout<<TEXT("q");
+	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	print_sleep(" 退出软件\n", 80);
 	
 	cout<<TEXT("\n>537>>按下按键>>");
 	while(true){
 		if (KEY('T')){
-			Beep(so1,155);
-			Beep(so1,155);
+			bgm.play("[5^ 3^ 1]");
 			cout<<TEXT("计时器清零\n");
 			timeex=0;
 			cout<<TEXT("时间已清零,");
 			PRESS_ENTER_TO_CONTINUE();
 			return;
 		}else if (KEY('A')){
+			bgm.play("[5^ 3^ 1]");
 			cout<<TEXT("关于\n");
-			Beep(so1,155);
-			Beep(so1,155);
 			about();
 			PRESS_ENTER_TO_CONTINUE();
 			return;
-		}else if(KEY('C')){
+		}/*else if(KEY('C')){
 			cout<<TEXT("调色(待开发)\n\n");
 			Beep(so1,155);
 			Beep(so1,155);
@@ -121,72 +166,80 @@ void control(){
 			WAIT_PRESS_ENTER_AND_RETURN();
 //			PRESS_ENTER_TO_CONTINUE();
 //			return;
-		}else if(KEY('W')){
+		}*/else if(KEY('W')){
 			cout<<TEXT("打开537工作室官方网站\n"); 
-			Beep(so1,155);
-			Beep(so1,155);
+			bgm.play("[5^ 3^ 1]");
 			ShellExecute(NULL,"open","https://www.537studio.com",NULL,NULL,SW_SHOWNORMAL);
 			cout<<TEXT("已打开537工作室官方网站，");
-			WAIT_PRESS_ENTER_AND_RETURN();
-//			PRESS_ENTER_TO_CONTINUE();
-//			return;
+			//WAIT_PRESS_ENTER_AND_RETURN();
+			PRESS_ENTER_TO_CONTINUE();
+			return;
 		}else if(KEY('H')){
 			cout<<TEXT("打开在线网站帮助文档\n");
-			Beep(so1,155);
-			Beep(so1,155);
+			bgm.play("[5^ 3^ 1]");
 			ShellExecute(NULL,"open","https://www.537studio.com/help",NULL,NULL,SW_SHOWNORMAL);
 			cout<<TEXT("已打开537工作室官方网站帮助页面，");
-			WAIT_PRESS_ENTER_AND_RETURN();
-//			PRESS_ENTER_TO_CONTINUE();
-//			return;
+			//WAIT_PRESS_ENTER_AND_RETURN();
+			PRESS_ENTER_TO_CONTINUE();
+			return;
 		}else if(KEY('E')){
 			cout<<TEXT("电子邮件\n");
-			Beep(so1,155);
-			Beep(so1,155);
+			bgm.play("[5^ 3^ 1]");
 			ShellExecute(NULL,"open","mailto:wushaoquan666@outlook.com",NULL,NULL,SW_SHOWNORMAL);
 			cout<<TEXT("已打开邮件窗口，");
-			WAIT_PRESS_ENTER_AND_RETURN();
-//			PRESS_ENTER_TO_CONTINUE();
-//			return;
+			//WAIT_PRESS_ENTER_AND_RETURN();
+			PRESS_ENTER_TO_CONTINUE();
+			return;
 		}else if(KEY('L')){
 			cout<<TEXT("用户协议\n");
-			Beep(so1,155);
-			Beep(so1,155);
+			bgm.play("[5^ 3^ 1]");
 			ShellExecute(NULL,"open","https://www.gnu.org/licenses/lgpl-3.0-standalone.html",NULL,NULL,SW_SHOWNORMAL);
 			cout<<TEXT("已打开GNU GPL-3.0协议网站，");
-			WAIT_PRESS_ENTER_AND_RETURN();
-//			PRESS_ENTER_TO_CONTINUE();
-//			return;
+			//WAIT_PRESS_ENTER_AND_RETURN();
+			PRESS_ENTER_TO_CONTINUE();
+			return;
 		}else if(KEY('O')){
 			cout<<TEXT("开源网站\n");
-			Beep(so1,155);
-			Beep(so1,155);
+			bgm.play("[5^ 3^ 1]");
 			print_sleep(TEXT("\n请选择要访问的站点\n"),30);
-			print_sleep(TEXT("1\tGitee："),30);
+			SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+			cout<<TEXT("1");
+			SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+			print_sleep(TEXT("\tGitee："),30);
 			print_sleep(TEXT("https://gitee.com/FTS-537Studio/537Clock\n"),30);
-			print_sleep(TEXT("2\tGitHub："),30);
+			
+			SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+			cout<<TEXT("2");
+			SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+			print_sleep(TEXT("\tGitHub："),30);
 			print_sleep(TEXT("https://github.com/537Studio/537Clock\n"),30);
 			
-			print_sleep(TEXT("ESC\t取消\n"),30);
+			SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+			cout<<TEXT("ESC");
+			SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+			print_sleep(TEXT("\t取消\n"),30);
 			print_sleep(TEXT("\n>537>>按下按键>>"),30);
 			
 			while(true){
 				if(KEY('1')){ 
             		cout<<TEXT("Gitee\n");
+            		bgm.play("[5 3^]");
 					ShellExecute(NULL,"open","https://gitee.com/FTS-537Studio/537Clock",NULL,NULL,SW_SHOWNORMAL);
 					cout<<TEXT("已打开Gitee上的537秒表仓库\n");
-					WAIT_PRESS_ENTER_AND_RETURN();
-//					PRESS_ENTER_TO_CONTINUE();
-//					return;
+					//WAIT_PRESS_ENTER_AND_RETURN();
+					PRESS_ENTER_TO_CONTINUE();
+					return;
         		}else if(KEY('2')){ 
             		cout<<TEXT("GitHub\n");
+            		bgm.play("[5 3^]");
 					ShellExecute(NULL,"open","https://github.com/537Studio/537Clock",NULL,NULL,SW_SHOWNORMAL);
 					cout<<TEXT("已打开GitHub上的537秒表仓库\n");
-					WAIT_PRESS_ENTER_AND_RETURN();
-//					PRESS_ENTER_TO_CONTINUE();
-//					return;
+					//WAIT_PRESS_ENTER_AND_RETURN();
+					PRESS_ENTER_TO_CONTINUE();
+					return;
         		}else if(KEY(VK_ESCAPE)){
         			cout<<TEXT("取消\n\n");
+        			bgm.play("3_ 3");
         			menu();
 					return;
 				}
@@ -194,16 +247,14 @@ void control(){
 			}
 		}else if(KEY('S')){
 			cout<<TEXT("清空屏幕\n");
-			Beep(so1,155);
-			Beep(so1,155);
+			bgm.play("[5^ 3^ 1]");
 			cls();
 			about();
 			menu();
 			return;
 		}else if(KEY('X')){
 			cout<<TEXT("继续计时\n");
-			Beep(so1,155);
-			Beep(so1,155);
+			bgm.play("[5 3]");
 			menu();
 			return;
 		}else if(KEY('Q')){
@@ -271,6 +322,9 @@ void about(){
 	print_sleep(TEXT("www.537studio.com\n"),30);
 	print_sleep(TEXT("    Copyright(C)537 Studio. 2023-2024."),30);
 	print_sleep(TEXT(" All rights reserved.\n"),0);
+	//MusicPlayer bgm;
+	//bgm.play("5,_ [1, 1_] 2_ 3 2_ 1_ [5, 1, 1-]");
+	/*
 	Beep(do1,275);
 	Beep(do1,250);
 	Beep(do2,200);
@@ -278,12 +332,13 @@ void about(){
 	Beep(re2,175);
 	Beep(do2,300);
 	Beep(so1,315);
+	*/
 }
 void color(){
 	Beep(so1,155);
 	Beep(so1,155);
 	Sleep(50);
-	/*
+	
 	map<char, string> color_list{     //这个是颜色表
 		{'1', "蓝色  "}, {'2', "绿色  "}, {'3', "浅绿色"},
 		{'4', "红色  "}, {'5', "紫色  "}, {'6', "黄色  "},
@@ -291,11 +346,8 @@ void color(){
 		{'A', "淡绿色"}, {'B', "淡浅绿"}, {'C', "淡红色"},
 		{'D', "淡紫色"}, {'E', "淡黄色"}, {'F', "亮白色"}
 	};
-	*/
+	
 	print_sleep("设置537秒表文字颜色\n\n",50);
-	
-	
-	/*
 	int num = 1;
 	for(auto colors : color_list){  //遍历并输出颜色表
 		string content;
@@ -306,23 +358,9 @@ void color(){
 		print_sleep((num%2==0)?"\n":"\t",(num%2==0)?25:0);
 		num++;
 	}
-	*/
 	print_sleep("\n\n当537秒表重启后，显示颜色会重置为默认颜色。\n", 50);
 	cout<<"\n>537>>更改背景色>请按下对应颜色的按键>";
 	
-	while(true){
-		if(key("1")){
-			SetConsoleColor(FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-			return;
-		}else if(key("2")){
-			SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-			return;
-		}else if(key("3")){
-			SetConsoleColor(FOREGROUND_GREEN | FORGROUND_BLUE | FOREGROUND_INTENSITY);
-			return;
-		}else 
-	}
-	/* 
 	while(true){
 		for(auto k : color_list){
 			if (KEY(k.first)){
@@ -337,7 +375,6 @@ void color(){
 		} 
 		Sleep(10);
 	}
-	*/
 }
 void cls(){
 	for(int i=0;i<50;i++){
@@ -352,7 +389,7 @@ void gotoxy(int x, int y){
 	coord.Y = y;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
-void SetConsoleColor(WORD color) {  
+void SetConsoleColor(WORD color){  
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);  
 	SetConsoleTextAttribute(hConsole, color);  
 }
