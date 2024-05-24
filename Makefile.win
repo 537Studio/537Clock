@@ -7,12 +7,12 @@ WINDRES  = windres.exe
 RES      = 537√Î±Ì_private.res
 OBJ      = main.o $(RES)
 LINKOBJ  = main.o $(RES)
-LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -lwinmm
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -lwinmm -pg
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
 BIN      = 537√Î±Ì.exe
-CXXFLAGS = $(CXXINCS) -std=c++11
-CFLAGS   = $(INCS) -std=c++11
+CXXFLAGS = $(CXXINCS) -std=c++11 -pg
+CFLAGS   = $(INCS) -std=c++11 -pg
 RM       = rm.exe -f
 
 .PHONY: all all-before all-after clean clean-custom
