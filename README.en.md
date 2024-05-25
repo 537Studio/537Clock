@@ -10,13 +10,15 @@ Latest official version: 1.1 (portable: x64 & x86)
 
 Video introduction: https://www.bilibili.com/video/BV1Y2421M7yk
 
+! [537 Clock] (537Clock_Introduction.PNG)
+
 ### Concept: Less is more
 
-The software is designed to create a great user experience. Icons built with useful characters and a user-friendly UI (user interface) that can be used to adjust the foreground color of the console (display character color). Its interactive experience also goes beyond the interaction of most command-line programs, such as selecting in-menu functions, where a normal command-line program requires the user to enter text before entering, while the 537 stopwatch cleverly uses a keyboard listening algorithm to react immediately when the software window is active. This greatly facilitates the use of the software. For example, during the timing period, the user presses and holds the spacebar for about 1 second (long press to avoid accidental touch), and the software will quickly open the pause panel with character animation, showing functions such as clearing and color grading. If you press the corresponding button of the function (not long press), the software will perform the relevant operation.
+The software is designed to create a great user experience. Icons built with useful characters and a user-friendly UI (user interface) that can be used to adjust the foreground color of the console (display character color). Its interactive experience also goes beyond the interaction of most command-line programs, such as selecting in-menu functions, where a normal command-line program requires the user to enter text before entering, while the 537 Clock cleverly uses a keyboard listening algorithm to react immediately when the software window is active. This greatly facilitates the use of the software. For example, during the timing period, the user presses and holds the spacebar for about 1 second (long press to avoid accidental touch), and the software will quickly open the pause panel with character animation, showing functions such as clearing and color grading. If you press the corresponding button of the function (not long press), the software will perform the relevant operation.
 
 ### features
 
-At the beginning of the design of the 537 stopwatch, the pursuit of **simplicity and efficiency**. The following are the features and related introductions within the software:
+At the beginning of the design of the 537 Clock, the pursuit of **simplicity and efficiency**. The following are the features and related introductions within the software:
 
 #### **Pause Panel**:
 
@@ -24,7 +26,7 @@ Press and hold the keyboard spacebar for about 1 second during the software oper
 
 > When the pause panel is opened, the ongoing timing operation is paused.
 
-#### **Timer Clears**:
+#### **Timer Zero**:
 
 The software starts the clock from the moment it is running, and the time is measured in seconds and is displayed in the rightmost column of the window. Press the "T" button on the pause panel to reset the timer time, and when the zero panel is closed, the timer will start from 0 again, which is irreversible.
 
@@ -38,7 +40,7 @@ Press the "C" button on the pause panel to perform the action. This option provi
 
 - 0 = black 8 = gray
 - 1 = Blue 9 = Light blue
-- 2 = Green A = Pale Green (default text color for 537 stopwatch)
+- 2 = Green A = Pale Green (default text color for 537 Clock)
 - 3 = light green B = light light green
 - 4 = Red C = Light red
 - 5 = Purple D = Lilac
@@ -46,11 +48,11 @@ Press the "C" button on the pause panel to perform the action. This option provi
 - 7 = White F = Bright White
 
 > **Note**: The color description comes from the built-in Command Prompt program (cmd.exe) of the Microsoft Windows operating system, and the actual display color may not be the same as the description color.
-> 537 Stopwatch does not store color data, and the text color will revert to pale green after restarting.
+> 537 Clock does not store color data, and the text color will revert to pale green after restarting.
 
-#### **Open the official website of 537 Studio**:
+#### **Open 537 Studio Official Website**:
 
-Press the "w" button in the pause panel to open the 537 official website with the default browser of the system (https://www.537studio.com), and the website will be launched in the future with the "537 stopwatch" software web online help document, but the relevant documents are still unfinished. This is just a test feature.
+Press the "w" button in the pause panel to open the 537 official website with the default browser of the system (https://www.537studio.com), and the website will be launched in the future with the "537 Clock" software web online help document, but the relevant documents are still unfinished. This is just a test feature.
 
 #### **Email**:
 
@@ -59,9 +61,9 @@ Press the "e" button in the pause panel, the program will call the system's defa
 #### **User Agreement**:
 
 Press the "L" button on the pause panel. This software uses the GNU GPL-3.0 open source license, and the open source license web page (https://www.gnu.org/licenses/lgpl-3.0-standalone.html) will be opened using the default browser of the system.
-> The Software is open sourced on the Gitee platform under the GPL-3.0 Open Source License and is available for modification and distribution by anyone (https://gitee.com/FTS-537Studio/537Clock).
+> The Software is open sourced on the Gitee and GitHub platform under the GPL-3.0 Open Source License and is available for modification and distribution by anyone(Gitee: https://gitee.com/FTS-537Studio/537Clock ; GitHub: https://github.com/537Studio/537Clock).
 
-#### **Open Source Website** (for 1.1 and later):
+#### **Open Source Website** (for 1.1 and above):
 
 Pressing the "o" button in the pause panel will display the addresses of all repositories of the software (including Gitee and GitHub). Press the corresponding button, and the software will use the system's default browser to open the relevant Git repository web page.
 
@@ -69,7 +71,7 @@ Pressing the "o" button in the pause panel will display the addresses of all rep
 
 Pressing the "S" button in the pause panel will clear the screen with text animation and restore the state when the software was opened. Your timing data will be saved.
 
-#### **Continue the timer**:
+#### **Continue the Counting**:
 
 If the user presses the spacebar by mistake or only wants to pause the timer, they can press the "x" key in the pause panel to restore the timer.
 
@@ -89,7 +91,7 @@ To exit the software, you can press the "Q" key in the pause panel to exit. Afte
 
 #### How to participate in the development?
 
-Join Studio 537 (hello@537studio.com) or submit a modification request.
+Join 537 Studio (hello@537studio.com) or submit a modification request.
 
 #### Help
 
