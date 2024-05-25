@@ -2,7 +2,7 @@
 
 ### 介绍
 
-[![537秒表介绍图片]("537Clock_Introduction.png")](https://www.537studio.com)
+[![537秒表介绍图片](./537Clock_Introduction.png "537秒表")](https://www.537studio.com)
 
 537秒表（537Clock）是537工作室开发的一款Windows控制台应用程序，为命令行界面，有年月日时分秒显示、Unix时间戳显示、计时/清零、调色等功能。
 
