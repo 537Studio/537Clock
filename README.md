@@ -1,8 +1,6 @@
-﻿# 537Clock
+# 537Clock
 
 ### 介绍
-
-![537秒表](537Clock_Introduction.PNG)
 
 537秒表（537Clock）是537工作室开发的一款Windows控制台应用程序，为命令行界面，有年月日时分秒显示、Unix时间戳显示、计时/清零、调色等功能。
 
@@ -11,6 +9,8 @@
 最新正式版本：1.1（便携式：x64 & x86）
 
 视频介绍：https://www.bilibili.com/video/BV1Y2421M7yk
+
+![537秒表](537Clock_Introduction.PNG)
 
 ### 理念：少即是多（Less is more）
 
@@ -61,7 +61,7 @@
 ####  **用户协议**：
 
 在暂停面板按下“l”按键。本软件使用的是GNU GPL-3.0开源协议，将会使用系统默认浏览器打开开源协议网页（https://www.gnu.org/licenses/lgpl-3.0-standalone.html）。
-> 根据GPL-3.0开源协议，本软件已在Gitee平台上开源并允许任何人进行修改和发行（https://gitee.com/FTS-537Studio/537Clock）。
+> 根据GPL-3.0开源协议，本软件已在Gitee和GitHub平台上开源并允许任何人进行修改和发行（Gitee: https://gitee.com/FTS-537Studio/537Clock ; GitHub: https://github.com/537Studio/537Clock）。
 
 ####  **开源网站**（适用于1.1及更高版本）：
 
