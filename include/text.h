@@ -317,7 +317,7 @@ void about(){
 	\\==/  ||  \\==/\\ \\=/\\| \\==/
 	*/
 	print_sleep(TEXT("   537 Clock\t"),30);
-	print_sleep(TEXT(" Version 1.1"),30);
+	print_sleep(TEXT(" Version 1.2"),30);
 	print_sleep(TEXT("\t537 Studio\t"),30);
 	print_sleep(TEXT("www.537studio.com\n"),30);
 	print_sleep(TEXT("    Copyright(C)537 Studio. 2023-2024."),30);
