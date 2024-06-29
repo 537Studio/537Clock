@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "537 clock Linux/1.0.0": {
+        "runtime": {
+          "537 clock Linux.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "537 clock Linux/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
