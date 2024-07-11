@@ -3,6 +3,7 @@
 *.res
 *.layout
 Makefile.win
+gmon.out
 
 # Other files and folders
 
