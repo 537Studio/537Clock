@@ -1,32 +1,15 @@
-# Prerequisites
-*.d
-
-# Compiled Object files
-*.slo
-*.lo
+# Build and release folders and files
 *.o
-*.obj
+*.res
+*.layout
+Makefile.win
 
-# Precompiled Headers
-*.gch
-*.pch
+# Other files and folders
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
 
 # Executables
 *.exe
-*.out
-*.app
+*.swf
+*.air
+*.ipa
+*.apk
