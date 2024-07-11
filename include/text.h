@@ -45,7 +45,8 @@ class FTSClock{
 		size_t strftime(char* strDest,size_t maxsize,const char* format,const struct tm *timeptr);
 		time_t unixtime=time(NULL);
 		long long starttime=unixtime;
-		string copyright=TEXT("Copyright(C)537 Studio.2023-2024.");
+		char title[MAX_PATH]={};
+		const char title_AppName[MAX_PATH]="537 Clock - ";
 		
 };
 long long timeex=0;
@@ -78,10 +79,6 @@ void SetConsoleColor(WORD color);
 
 void control(){
 	FTSClock set;
-	/*
-	Beep(si1,150);
-	Beep(do1,300);
-	*/
 	MusicPlayer bgm;
 	bgm.play("[5^ 3_] [5^ 1 1]");
 	
@@ -93,25 +90,17 @@ void control(){
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	cout<<TEXT("t");
 	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	print_sleep(" 计时器清零\n", 80);
+	print_sleep(" 计时清零\n", 80);
 	
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	cout<<TEXT("a");
 	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	print_sleep(" 关于\n", 80);
-	
-	/* TODO (#1#): 加入调色功能 */
-	//print_sleep("c 调色\n", 80);
+	print_sleep(" 关于程序\n", 80);
 	
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	cout<<TEXT("w");
 	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	print_sleep(" 打开537工作室官方网站\n", 80);
-	
-	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	cout<<TEXT("h");
-	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	print_sleep(" 打开在线网站帮助文档\n", 80);
+	print_sleep(" 官方网站\n", 80);
 	
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	cout<<TEXT("e");
@@ -158,28 +147,11 @@ void control(){
 			about();
 			PRESS_ENTER_TO_CONTINUE();
 			return;
-		}/*else if(KEY('C')){
-			cout<<TEXT("调色(待开发)\n\n");
-			Beep(so1,155);
-			Beep(so1,155);
-			color();
-			WAIT_PRESS_ENTER_AND_RETURN();
-//			PRESS_ENTER_TO_CONTINUE();
-//			return;
-		}*/else if(KEY('W')){
+		}else if(KEY('W')){
 			cout<<TEXT("打开537工作室官方网站\n"); 
 			bgm.play("[5^ 3^ 1]");
 			ShellExecute(NULL,"open","https://www.537studio.com",NULL,NULL,SW_SHOWNORMAL);
 			cout<<TEXT("已打开537工作室官方网站，");
-			//WAIT_PRESS_ENTER_AND_RETURN();
-			PRESS_ENTER_TO_CONTINUE();
-			return;
-		}else if(KEY('H')){
-			cout<<TEXT("打开在线网站帮助文档\n");
-			bgm.play("[5^ 3^ 1]");
-			ShellExecute(NULL,"open","https://www.537studio.com/help",NULL,NULL,SW_SHOWNORMAL);
-			cout<<TEXT("已打开537工作室官方网站帮助页面，");
-			//WAIT_PRESS_ENTER_AND_RETURN();
 			PRESS_ENTER_TO_CONTINUE();
 			return;
 		}else if(KEY('E')){
@@ -187,7 +159,6 @@ void control(){
 			bgm.play("[5^ 3^ 1]");
 			ShellExecute(NULL,"open","mailto:wushaoquan666@outlook.com",NULL,NULL,SW_SHOWNORMAL);
 			cout<<TEXT("已打开邮件窗口，");
-			//WAIT_PRESS_ENTER_AND_RETURN();
 			PRESS_ENTER_TO_CONTINUE();
 			return;
 		}else if(KEY('L')){
@@ -195,7 +166,6 @@ void control(){
 			bgm.play("[5^ 3^ 1]");
 			ShellExecute(NULL,"open","https://www.gnu.org/licenses/lgpl-3.0-standalone.html",NULL,NULL,SW_SHOWNORMAL);
 			cout<<TEXT("已打开GNU GPL-3.0协议网站，");
-			//WAIT_PRESS_ENTER_AND_RETURN();
 			PRESS_ENTER_TO_CONTINUE();
 			return;
 		}else if(KEY('O')){
@@ -226,7 +196,6 @@ void control(){
             		bgm.play("[5 3^]");
 					ShellExecute(NULL,"open","https://gitee.com/FTS-537Studio/537Clock",NULL,NULL,SW_SHOWNORMAL);
 					cout<<TEXT("已打开Gitee上的537秒表仓库\n");
-					//WAIT_PRESS_ENTER_AND_RETURN();
 					PRESS_ENTER_TO_CONTINUE();
 					return;
         		}else if(KEY('2')){ 
@@ -234,7 +203,6 @@ void control(){
             		bgm.play("[5 3^]");
 					ShellExecute(NULL,"open","https://github.com/537Studio/537Clock",NULL,NULL,SW_SHOWNORMAL);
 					cout<<TEXT("已打开GitHub上的537秒表仓库\n");
-					//WAIT_PRESS_ENTER_AND_RETURN();
 					PRESS_ENTER_TO_CONTINUE();
 					return;
         		}else if(KEY(VK_ESCAPE)){
