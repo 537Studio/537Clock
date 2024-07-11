@@ -8,7 +8,7 @@
 #include "include/about.h"
 using namespace std;
 int main(){
-	SetConsoleTitle(TEXT("537 Clock")); 
+	SetConsoleTitle(TEXT(APP_NAME_L)); 
 	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	about();
 	menu();

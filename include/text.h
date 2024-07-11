@@ -6,6 +6,7 @@
 #include <winapifamily.h>
 #include <ShellApi.h>
 #include "music.h"
+#include "about.h"
 #define do1 261.626
 #define re1 293.665
 #define mi1 329.629
@@ -284,12 +285,16 @@ void about(){
 	   |  ||  |  | |  | | |  |
 	\\==/  ||  \\==/\\ \\=/\\| \\==/
 	*/
-	print_sleep(TEXT("   537 Clock\t"),30);
-	print_sleep(TEXT(" Version 1.2"),30);
-	print_sleep(TEXT("\t537 Studio\t"),30);
-	print_sleep(TEXT("www.537studio.com\n"),30);
-	print_sleep(TEXT("    Copyright(C)537 Studio. 2023-2024."),30);
-	print_sleep(TEXT(" All rights reserved.\n"),0);
+	print_sleep(TEXT("  "),15);
+	print_sleep(TEXT(APP_NAME_L),15);
+	print_sleep(TEXT("\tVersion "),15);
+	print_sleep(TEXT(APP_VERSION),15);
+	print_sleep(TEXT("\t"),15);
+	print_sleep(TEXT(APP_DEVELOPER),15);
+	print_sleep(TEXT("\t"),0);
+	print_sleep(TEXT(APP_WEBSITE),25);
+	print_sleep(TEXT("\n  "),5);
+	print_sleep(TEXT(APP_COPYRIGHT),30);
 	//MusicPlayer bgm;
 	//bgm.play("5,_ [1, 1_] 2_ 3 2_ 1_ [5, 1, 1-]");
 	/*
