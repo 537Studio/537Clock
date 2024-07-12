@@ -42,21 +42,33 @@
 						}
 using namespace std;
 SHSTDAPI_(HINSTANCE) ShellExecuteA (HWND hwnd, LPCSTR lpOperation, LPCSTR lpFile, LPCSTR lpParameters, LPCSTR lpDirectory, INT nShowCmd); 
-class FTSClock{
-	public:
-		size_t strftime(char* strDest,size_t maxsize,const char* format,const struct tm *timeptr);
-		time_t unixtime=time(NULL);
-		long long starttime=unixtime;
-		char title[MAX_PATH]={};
-		const char title_AppName[MAX_PATH]="537 Clock - ";
-		
-};
-long long timeex=0;
-
+char title[MAX_PATH]={};
+const char title_AppName[MAX_PATH]="537 Clock - ";
+long long timer;
+struct TimeInfo{
+	int year;
+	int month;
+	int day;
+	int hour;
+	int min;
+	int sec;
+	
+	long long unixtime;
+}nowtime; 
+struct StartTimeInfo{
+	int year;
+	int month;
+	int day;
+	int hour;
+	int min;
+	int sec;
+	
+	long long unixtime;
+}starttime;
 template<typename T>
-void print_sleep(T content, int sleep, int times = 1){  
-	for(int i = 0; i<times; i++)
-		cout << content; //此函数作用是：在输出times个content后，
+void tprint(T content,int sleep=0,int times=1){  
+	for(int i=0;i<times;i++)
+		cout<<content; //此函数作用是：在输出times个content后，
 	Sleep(sleep);        //再去等待sleep秒
 }
 
@@ -80,66 +92,65 @@ void gotoxy(int x, int y);
 void SetConsoleColor(WORD color);
 
 void control(){
-	FTSClock set;
 	MusicPlayer bgm;
 	bgm.play("[5^ 3_] [5^ 1 1]");
 	
-	print_sleep("\n\n>>暂停面板------------", 25);
-	print_sleep("------------------", 25, 2);
-	print_sleep("----------------------\n", 80);
-	print_sleep("\n按下按键以启用功能:\n\n", 40);
+	tprint("\n\n>>暂停面板------------", 25);
+	tprint("------------------", 25, 2);
+	tprint("----------------------\n", 80);
+	tprint("\n按下按键以启用功能:\n\n", 40);
 	
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	cout<<TEXT("t");
 	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	print_sleep(" 计时清零\n", 80);
+	tprint(" 计时清零\n", 80);
 	
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	cout<<TEXT("a");
 	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	print_sleep(" 关于程序\n", 80);
+	tprint(" 关于程序\n", 80);
 	
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	cout<<TEXT("w");
 	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	print_sleep(" 官方网站\n", 80);
+	tprint(" 官方网站\n", 80);
 	
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	cout<<TEXT("e");
 	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	print_sleep(" 电子邮件\n", 80);
+	tprint(" 电子邮件\n", 80);
 	
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	cout<<TEXT("l");
 	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	print_sleep(" 用户协议\n", 80);
+	tprint(" 用户协议\n", 80);
 	
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	cout<<TEXT("o");
 	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	print_sleep(" 开源网站\n", 80);
+	tprint(" 开源网站\n", 80);
 	
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	cout<<TEXT("s");
 	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	print_sleep(" 清空屏幕\n", 80);
+	tprint(" 清空屏幕\n", 80);
 	
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	cout<<TEXT("x");
 	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	print_sleep(" 继续计时\n", 80);
+	tprint(" 继续计时\n", 80);
 	
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	cout<<TEXT("q");
 	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	print_sleep(" 退出软件\n", 80);
+	tprint(" 退出软件\n", 80);
 	
 	cout<<TEXT("\n>537>>按下按键>>");
 	while(true){
 		if (KEY('T')){
 			bgm.play("[5^ 3^ 1]");
 			cout<<TEXT("计时器清零\n");
-			timeex=0;
+			timer=0;
 			cout<<TEXT("时间已清零,");
 			PRESS_ENTER_TO_CONTINUE();
 			return;
@@ -173,24 +184,24 @@ void control(){
 		}else if(KEY('O')){
 			cout<<TEXT("开源网站\n");
 			bgm.play("[5^ 3^ 1]");
-			print_sleep(TEXT("\n请选择要访问的站点\n"),30);
+			tprint(TEXT("\n请选择要访问的站点\n"),30);
 			SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 			cout<<TEXT("1");
 			SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-			print_sleep(TEXT("\tGitee："),30);
-			print_sleep(TEXT("https://gitee.com/FTS-537Studio/537Clock\n"),30);
+			tprint(TEXT("\tGitee："),30);
+			tprint(TEXT("https://gitee.com/FTS-537Studio/537Clock\n"),30);
 			
 			SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 			cout<<TEXT("2");
 			SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-			print_sleep(TEXT("\tGitHub："),30);
-			print_sleep(TEXT("https://github.com/537Studio/537Clock\n"),30);
+			tprint(TEXT("\tGitHub："),30);
+			tprint(TEXT("https://github.com/537Studio/537Clock\n"),30);
 			
 			SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 			cout<<TEXT("ESC");
 			SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-			print_sleep(TEXT("\t取消\n"),30);
-			print_sleep(TEXT("\n>537>>按下按键>>"),30);
+			tprint(TEXT("\t取消\n"),30);
+			tprint(TEXT("\n>537>>按下按键>>"),30);
 			
 			while(true){
 				if(KEY('1')){ 
@@ -237,9 +248,9 @@ void control(){
 	}
 } 
 void menu(){
-	print_sleep(TEXT("\n>年---月--日---时--分--秒--------"),20);
-	print_sleep(TEXT("---------Unix时间戳(1970年1月1日距今)---"),20);
-	print_sleep(TEXT("-计时--\n"),0);
+	tprint(TEXT("\n>年---月--日---时--分--秒--------"),20);
+	tprint(TEXT("---------Unix时间戳(1970年1月1日距今)---"),20);
+	tprint(TEXT("-计时--\n"),0);
 }
 void PRESS_ENTER_TO_CONTINUE(){
 	//功能相似的宏WAIT_PRESS_ENTER_AND_RETURN() 
@@ -268,11 +279,11 @@ void PRESS_SPACE_TO_CONTINUE(){
 	}
 }
 void about(){
-	print_sleep(TEXT("  /-------\\\t=== === ===    /==\\  ||          | =\n"),100);
-	print_sleep(TEXT(" /  -----  \\\t|     |   /    |    ====         |\n"),100);
-	print_sleep(TEXT("|===5 3 7===|\t=== ===  /     \\==\\  ||  |  |  /=| | /==\\\n"),100);
-	print_sleep(TEXT(" \\  -----  /\t  |   | /         |  ||  |  | |  | | |  |\n"),100);
-	print_sleep(TEXT("  \\-------/\t=== === =      \\==/  ||  \\==/\\ \\=/\\| \\==/\n"),80);
+	tprint(TEXT("  /-------\\\t=== === ===    /==\\  ||          | =\n"),100);
+	tprint(TEXT(" /  -----  \\\t|     |   /    |    ====         |\n"),100);
+	tprint(TEXT("|===5 3 7===|\t=== ===  /     \\==\\  ||  |  |  /=| | /==\\\n"),100);
+	tprint(TEXT(" \\  -----  /\t  |   | /         |  ||  |  | |  | | |  |\n"),100);
+	tprint(TEXT("  \\-------/\t=== === =      \\==/  ||  \\==/\\ \\=/\\| \\==/\n"),80);
 	/*
 	/==\  ||          | =
 	|    ====         |
@@ -286,22 +297,22 @@ void about(){
 	   |  ||  |  | |  | | |  |
 	\\==/  ||  \\==/\\ \\=/\\| \\==/
 	*/
-	print_sleep(TEXT("  "),15);
+	tprint(TEXT("  "),15);
 	
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	print_sleep(TEXT(APP_NAME_L),15);
-	print_sleep(TEXT("\tVersion "),15);
-	print_sleep(TEXT(APP_VERSION),15);
-	print_sleep(TEXT("\t"),15);
+	tprint(TEXT(APP_NAME_L),15);
+	tprint(TEXT("\tVersion "),15);
+	tprint(TEXT(APP_VERSION),15);
+	tprint(TEXT("\t"),15);
 	
 	SetConsoleColor(FOREGROUND_BLUE | FOREGROUND_GREEN);
-	print_sleep(TEXT(APP_DEVELOPER),15);
-	print_sleep(TEXT("\t"),0);
-	print_sleep(TEXT(APP_WEBSITE),25);
+	tprint(TEXT(APP_DEVELOPER),15);
+	tprint(TEXT("\t"),0);
+	tprint(TEXT(APP_WEBSITE),25);
 	
 	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-	print_sleep(TEXT("\n  "),5);
-	print_sleep(TEXT(APP_COPYRIGHT),30);
+	tprint(TEXT("\n  "),5);
+	tprint(TEXT(APP_COPYRIGHT),30);
 	
 	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	//MusicPlayer bgm;
@@ -329,18 +340,18 @@ void color(){
 		{'D', "淡紫色"}, {'E', "淡黄色"}, {'F', "亮白色"}
 	};
 	
-	print_sleep("设置537秒表文字颜色\n\n",50);
+	tprint("设置537秒表文字颜色\n\n",50);
 	int num = 1;
 	for(auto colors : color_list){  //遍历并输出颜色表
 		string content;
 		content += colors.first;
 		content += '=';
 		content += colors.second;
-		print_sleep(content, 50);
-		print_sleep((num%2==0)?"\n":"\t",(num%2==0)?25:0);
+		tprint(content, 50);
+		tprint((num%2==0)?"\n":"\t",(num%2==0)?25:0);
 		num++;
 	}
-	print_sleep("\n\n当537秒表重启后，显示颜色会重置为默认颜色。\n", 50);
+	tprint("\n\n当537秒表重启后，显示颜色会重置为默认颜色。\n", 50);
 	cout<<"\n>537>>更改背景色>请按下对应颜色的按键>";
 	
 	while(true){
