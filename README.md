@@ -1,5 +1,7 @@
 # 537Clock
 
+[简体中文](./README.md)     [English](./README.en.md)
+
 ### 介绍
 
 537秒表（537Clock）是537工作室开发的一款Windows控制台应用程序，为命令行界面，有年月日时分秒显示、Unix时间戳显示、计时/清零、调色等功能。发布于2023年12月31日。
@@ -85,7 +87,7 @@
 
 ##### **开发环境**
 
-Dev-C++ 5.11 with TDM-GCC(MinGW) 4.9.2
+> Dev-C++ 5.11 with TDM-GCC(MinGW) 4.9.2
 
 ##### **部署系统**
 
@@ -103,6 +105,6 @@ Dev-C++ 5.11 with TDM-GCC(MinGW) 4.9.2
 
 > 加入537工作室（hello@537studio.com）或提交修改申请。
 
-#### 帮助
+### 帮助
 
 如果遇到其它问题或更新建议，请发邮件至hello@537studio.com。我们会持续改进。

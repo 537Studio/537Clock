@@ -1,5 +1,7 @@
 # 537Clock
 
+[简体中文](./README.md)     [English](./README.en.md)
+
 ### Introduction
 
 537 Clock is a Windows console application developed by 537 Studio, which is a command-line interface with functions such as year, month, day, hour, minute, and second display, Unix timestamp display, timing/clearing, and color grading. Released on December 31, 2023.
@@ -85,7 +87,7 @@ To exit the software, you can press the "Q" key in the pause panel to exit. Afte
 
 ##### **Development Environment**
 
-Dev-C++ 5.11 with TDM-GCC(MinGW) 4.9.2
+> Dev-C++ 5.11 with TDM-GCC(MinGW) 4.9.2
 
 ##### **Deployment System**
 
@@ -103,6 +105,6 @@ Dev-C++ 5.11 with TDM-GCC(MinGW) 4.9.2
 
 > Join Studio 537 (hello@537studio.com) or submit a modification request.
 
-#### Help
+### Help
 
 If you encounter additional questions or update suggestions, please email hello@537studio.com. We will continue to improve.
