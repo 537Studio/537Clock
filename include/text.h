@@ -1,6 +1,7 @@
 #include <iostream> 
 #include <string>
 #include <ctime>
+#include <chrono>  
 #include <map>
 #include <windows.h>
 #include <winapifamily.h>
@@ -286,15 +287,23 @@ void about(){
 	\\==/  ||  \\==/\\ \\=/\\| \\==/
 	*/
 	print_sleep(TEXT("  "),15);
+	
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	print_sleep(TEXT(APP_NAME_L),15);
 	print_sleep(TEXT("\tVersion "),15);
 	print_sleep(TEXT(APP_VERSION),15);
 	print_sleep(TEXT("\t"),15);
+	
+	SetConsoleColor(FOREGROUND_BLUE | FOREGROUND_GREEN);
 	print_sleep(TEXT(APP_DEVELOPER),15);
 	print_sleep(TEXT("\t"),0);
 	print_sleep(TEXT(APP_WEBSITE),25);
+	
+	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
 	print_sleep(TEXT("\n  "),5);
 	print_sleep(TEXT(APP_COPYRIGHT),30);
+	
+	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	//MusicPlayer bgm;
 	//bgm.play("5,_ [1, 1_] 2_ 3 2_ 1_ [5, 1, 1-]");
 	/*
