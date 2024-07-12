@@ -10,7 +10,7 @@ Latest official version: 1.2 (portable: x64 & x86)
 
 Video Intro (1.0 beta version): https://www.bilibili.com/video/BV1Y2421M7yk
 
-! [537 Clock] (537Clock_Introduction.PNG)
+! [537 Clock](537Clock_Introduction.PNG)
 
 ### Concept: _Less is more_
 
