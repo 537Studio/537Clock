@@ -28,7 +28,7 @@ Folders=include
 IncludeVersionInfo=1
 SupportXPThemes=0
 CompilerSet=2
-CompilerSettings=00000000c0000000100000000
+CompilerSettings=00000000c0000000000000000
 UnitCount=4
 
 [VersionInfo]
