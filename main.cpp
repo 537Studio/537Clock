@@ -33,6 +33,8 @@ int main(int argc, char* argv[]){
     starttime.min=local_time->tm_min;  
     starttime.sec=local_time->tm_sec;  
 	
+	last_unixtime=starttime.unixtime;
+	
 	while(true){
 		strcpy(title,title_AppName);
 		
@@ -52,38 +54,43 @@ int main(int argc, char* argv[]){
     	nowtime.min=local_time->tm_min;  
     	nowtime.sec=local_time->tm_sec;  
 		
-		timer=nowtime.unixtime-starttime.unixtime;
+		if(last_unixtime!=nowtime.unixtime){
+			timer++;
+			
+			tprint("\n");
+    		tprint(nowtime.year,20);
+    		tprint("年",5);
+    		tprint(nowtime.month,20);
+    		tprint("月",5);
+    		tprint(nowtime.day,20);
+    		tprint("日\t",40);
+    		
+    		tprint(nowtime.hour,20);
+    		tprint("时",5);
+    		tprint(nowtime.min,20);
+    		tprint("分",5);
+    		tprint(nowtime.sec,20);
+    		tprint("秒\t",40);
+    		
+    		tprint("=537=\t",60);
+			
+			tprint("  ",30);
+			
+			tprint(TEXT("1970年"),30);
+			
+			tprint(TEXT("1月1日"),30);
+			
+			tprint(TEXT("距今"),30);
+			cout<<nowtime.unixtime;
+			tprint(TEXT("秒    "),60);
+			
+			SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+			cout<<timer<<TEXT("秒");
+			SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 		
-    	tprint("\n");
-    	tprint(nowtime.year,20);
-    	tprint("年",5);
-    	tprint(nowtime.month,20);
-    	tprint("月",5);
-    	tprint(nowtime.day,20);
-    	tprint("日\t",40);
+			last_unixtime=nowtime.unixtime;
+		}
     	
-    	tprint(nowtime.hour,20);
-    	tprint("时",5);
-    	tprint(nowtime.min,20);
-    	tprint("分",5);
-    	tprint(nowtime.sec,20);
-    	tprint("秒\t",40);
-    	
-    	tprint("=537=\t",60);
-		
-		tprint("  ",30);
-		
-		tprint(TEXT("1970年"),30);
-		
-		tprint(TEXT("1月1日"),30);
-		
-		tprint(TEXT("距今"),30);
-		cout<<nowtime.unixtime;
-		tprint(TEXT("秒    "),60);
-		
-		SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-		cout<<timer<<TEXT("秒");
-		SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 		
 		char timenum[MAX_PATH]={};
 		itoa(timer,timenum,10);
@@ -91,14 +98,12 @@ int main(int argc, char* argv[]){
 		strcat(title,"s");
 		SetConsoleTitle(TEXT(title));
 		
-		do{
-			if(KEY(' ')){
+		if(KEY(' ')){
     			strcat(title," Paused");
     			SetConsoleTitle(TEXT(title));
     			control();
 			}
 			Sleep(20);
-		}while(timer==nowtime.sec);
 	}
 	
     return 0;

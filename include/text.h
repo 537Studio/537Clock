@@ -45,6 +45,7 @@ SHSTDAPI_(HINSTANCE) ShellExecuteA (HWND hwnd, LPCSTR lpOperation, LPCSTR lpFile
 char title[MAX_PATH]={};
 const char title_AppName[MAX_PATH]="537 Clock - ";
 long long timer;
+long long last_unixtime;
 struct TimeInfo{
 	int year;
 	int month;
