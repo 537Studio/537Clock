@@ -8,20 +8,8 @@
 #include <ShellApi.h>
 #include "music.h"
 #include "about.h"
-#define do1 261.626
-#define re1 293.665
-#define mi1 329.629
-#define fa1 349.228
-#define so1 391.995
-#define la1 440.000
-#define si1 493.883
-#define do2 523.251
-#define re2 587.330
-#define mi2 659.255
-#define fa2 698.456
-#define so2 783.991
-#define la2 880.000
-#define si2 987.767
+#include "language.h"
+
 #define ShellExecute __MINGW_NAME_AW(ShellExecute)
 // '&'运算符将结果与0x8000进行按位与操作，判断最低位是否为1
 #define KEY(key) (GetAsyncKeyState(key) & 0x8000) 
@@ -42,14 +30,55 @@
 						}
 using namespace std;
 SHSTDAPI_(HINSTANCE) ShellExecuteA (HWND hwnd, LPCSTR lpOperation, LPCSTR lpFile, LPCSTR lpParameters, LPCSTR lpDirectory, INT nShowCmd); 
-char title[MAX_PATH]={};
-const char title_AppName[MAX_PATH]="537 Clock - ";
 long long timer;
 long long last_unixtime;
+struct Text{
+	char AppName[MAX_PATH]={};
+	char Version[MAX_PATH]={};
+	char BuildVersion[MAX_PATH]={};
+	
+	char Support[MAX_PATH]={};
+	char Copyright[MAX_PATH]={};
+	
+	char title[MAX_PATH]={};
+	char title_AppName[MAX_PATH]={};
+	
+	char year[MAX_PATH]={};
+	char month[MAX_PATH]={};
+	char date[MAX_PATH]={};
+	char hour[MAX_PATH]={};
+	char min[MAX_PATH]={};
+	char sec[MAX_PATH]={};
+	
+	char timer_year[MAX_PATH]={};
+	char timer_month[MAX_PATH]={};
+	char timer_date[MAX_PATH]={};
+	char timer_hour[MAX_PATH]={};
+	char timer_min[MAX_PATH]={};
+	char timer_sec[MAX_PATH]={};
+	
+	char pausepanel[MAX_PATH]={}; 
+	char timerclear[MAX_PATH]={};
+	char abouttheprogram[MAX_PATH]={};
+	char changecolor[MAX_PATH]={};
+	char officialwebsite[MAX_PATH]={};
+	char email[MAX_PATH]={};
+	char license[MAX_PATH]={};
+	char opensourcewebsite[MAX_PATH]={};
+	char clearscreen[MAX_PATH]={};
+	char continuethetimer[MAX_PATH]={}; 
+	char exit[MAX_PATH]={};
+	
+	char paused[MAX_PATH]={};
+	char pressthekey[MAX_PATH]={};
+	char pressthekeytoenablethefunction[MAX_PATH]={};
+	char timeclear[MAX_PATH]={};
+	char thewebsiteaddressis[MAX_PATH]={};
+}T;
 struct TimeInfo{
 	int year;
 	int month;
-	int day;
+	int date;
 	int hour;
 	int min;
 	int sec;
@@ -59,7 +88,7 @@ struct TimeInfo{
 struct StartTimeInfo{
 	int year;
 	int month;
-	int day;
+	int date;
 	int hour;
 	int min;
 	int sec;
@@ -74,6 +103,8 @@ void tprint(T content,int sleep=0,int times=1){
 }
 
 void menu();
+
+void logo();
 
 void about(); 
 
@@ -96,96 +127,159 @@ void control(){
 	MusicPlayer bgm;
 	bgm.play("[5^ 3_] [5^ 1 1]");
 	
-	tprint("\n\n>>暂停面板------------", 25);
+	tprint("\n\n>>", 15);
+	tprint(T.pausepanel, 15);
+	tprint("------------",15);
 	tprint("------------------", 25, 2);
 	tprint("----------------------\n", 80);
-	tprint("\n按下按键以启用功能:\n\n", 40);
+	
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+	tprint("\n", 10);
+	tprint(T.pressthekeytoenablethefunction,40);
+	tprint("\n\n",20);
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	cout<<TEXT("t ");
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+	tprint(T.timerclear, 50);
+	tprint("\n",30);
 	
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	cout<<TEXT("t");
-	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	tprint(" 计时清零\n", 80);
+	cout<<TEXT("a ");
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+	tprint(T.abouttheprogram, 50);
+	tprint("\n",30);
 	
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	cout<<TEXT("a");
-	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	tprint(" 关于程序\n", 80);
+	cout<<TEXT("w ");
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+	tprint(T.officialwebsite, 80);
+	tprint("\n",30);
 	
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	cout<<TEXT("w");
-	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	tprint(" 官方网站\n", 80);
+	cout<<TEXT("e ");
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+	tprint(T.email, 80);
+	tprint("\n",30);
 	
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	cout<<TEXT("e");
-	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	tprint(" 电子邮件\n", 80);
+	cout<<TEXT("l ");
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+	tprint(T.license, 80);
+	tprint("\n",30);
 	
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	cout<<TEXT("l");
-	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	tprint(" 用户协议\n", 80);
+	cout<<TEXT("o ");
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+	tprint(T.opensourcewebsite, 80);
+	tprint("\n",30);
 	
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	cout<<TEXT("o");
-	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	tprint(" 开源网站\n", 80);
+	cout<<TEXT("s ");
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+	tprint(T.clearscreen, 80);
+	tprint("\n",30);
 	
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	cout<<TEXT("s");
-	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	tprint(" 清空屏幕\n", 80);
+	cout<<TEXT("x ");
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+	tprint(T.continuethetimer, 80);
+	tprint("\n",30);
 	
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	cout<<TEXT("x");
-	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	tprint(" 继续计时\n", 80);
+	cout<<TEXT("q ");
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+	tprint(T.exit, 80);
+	tprint("\n",30);
 	
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+	tprint("\n>",10);
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	cout<<TEXT("q");
-	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	tprint(" 退出软件\n", 80);
-	
-	cout<<TEXT("\n>537>>按下按键>>");
+	tprint("537",30);
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+	tprint(">>",10);
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+	tprint(T.pressthekey,10);
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+	tprint(">>",10);
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	while(true){
 		if (KEY('T')){
 			bgm.play("[5^ 3^ 1]");
-			cout<<TEXT("计时器清零\n");
+			tprint(T.timerclear,20);
+			tprint("\n\n");
 			timer=0;
-			cout<<TEXT("时间已清零,");
+			SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+			tprint(T.timeclear);
 			PRESS_ENTER_TO_CONTINUE();
 			return;
 		}else if (KEY('A')){
 			bgm.play("[5^ 3^ 1]");
-			cout<<TEXT("关于\n");
-			about();
+			tprint(T.abouttheprogram,20);
+			tprint("\n\n");
+			SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+			logo();
+			
+			SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+			tprint(T.AppName),20;
+			
+			SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+			tprint("\n",10);
+			tprint(T.Version,20);
+			tprint(" ");
+			tprint(APP_VERSION,10);
+			
+			SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN);
+			tprint("\n",10);
+			tprint(T.BuildVersion,20);
+			tprint(": ");
+			tprint(APP_BUILDVERSION,20);
+			
+			SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_BLUE);
+			tprint("\n");
+			tprint(T.Support,20);
+			
+			SetConsoleColor(FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+			tprint(T.thewebsiteaddressis,50);
+			tprint(APP_WEBSITE,30);
+			tprint("\n");
+			
+			SetConsoleColor(FOREGROUND_RED | FOREGROUND_INTENSITY);
+			tprint(T.Copyright,60);
+			tprint("\n\n");
+			
 			PRESS_ENTER_TO_CONTINUE();
 			return;
 		}else if(KEY('W')){
-			cout<<TEXT("打开537工作室官方网站\n"); 
+			tprint(T.officialwebsite,20);
+			tprint("\n\n");
 			bgm.play("[5^ 3^ 1]");
 			ShellExecute(NULL,"open","https://www.537studio.com",NULL,NULL,SW_SHOWNORMAL);
 			cout<<TEXT("已打开537工作室官方网站，");
 			PRESS_ENTER_TO_CONTINUE();
 			return;
 		}else if(KEY('E')){
-			cout<<TEXT("电子邮件\n");
+			tprint(T.email,20);
+			tprint("\n\n");
 			bgm.play("[5^ 3^ 1]");
-			ShellExecute(NULL,"open","mailto:wushaoquan666@outlook.com",NULL,NULL,SW_SHOWNORMAL);
+			char address[MAX_PATH]="mailto:";
+			strcpy(address,APP_EMAIL);
+			ShellExecute(NULL,"open",address,NULL,NULL,SW_SHOWNORMAL);
 			cout<<TEXT("已打开邮件窗口，");
 			PRESS_ENTER_TO_CONTINUE();
 			return;
 		}else if(KEY('L')){
-			cout<<TEXT("用户协议\n");
+			tprint(T.license,20);
+			tprint("\n\n");
 			bgm.play("[5^ 3^ 1]");
 			ShellExecute(NULL,"open","https://www.gnu.org/licenses/lgpl-3.0-standalone.html",NULL,NULL,SW_SHOWNORMAL);
 			cout<<TEXT("已打开GNU GPL-3.0协议网站，");
 			PRESS_ENTER_TO_CONTINUE();
 			return;
 		}else if(KEY('O')){
-			cout<<TEXT("开源网站\n");
+			tprint(T.opensourcewebsite,20);
+			tprint("\n\n");
 			bgm.play("[5^ 3^ 1]");
-			tprint(TEXT("\n请选择要访问的站点\n"),30);
+			tprint(TEXT("请选择要访问的站点\n"),30);
 			SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 			cout<<TEXT("1");
 			SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
@@ -206,14 +300,14 @@ void control(){
 			
 			while(true){
 				if(KEY('1')){ 
-            		cout<<TEXT("Gitee\n");
+            		cout<<TEXT("Gitee\n\n");
             		bgm.play("[5 3^]");
 					ShellExecute(NULL,"open","https://gitee.com/FTS-537Studio/537Clock",NULL,NULL,SW_SHOWNORMAL);
 					cout<<TEXT("已打开Gitee上的537秒表仓库\n");
 					PRESS_ENTER_TO_CONTINUE();
 					return;
         		}else if(KEY('2')){ 
-            		cout<<TEXT("GitHub\n");
+            		cout<<TEXT("GitHub\n\n");
             		bgm.play("[5 3^]");
 					ShellExecute(NULL,"open","https://github.com/537Studio/537Clock",NULL,NULL,SW_SHOWNORMAL);
 					cout<<TEXT("已打开GitHub上的537秒表仓库\n");
@@ -228,19 +322,22 @@ void control(){
     			Sleep(25);
 			}
 		}else if(KEY('S')){
-			cout<<TEXT("清空屏幕\n");
+			tprint(T.clearscreen,20);
+			tprint("\n");
 			bgm.play("[5^ 3^ 1]");
 			cls();
 			about();
 			menu();
 			return;
 		}else if(KEY('X')){
-			cout<<TEXT("继续计时\n");
+			tprint(T.continuethetimer,20);
+			tprint("\n");
 			bgm.play("[5 3]");
 			menu();
 			return;
 		}else if(KEY('Q')){
-			cout<<TEXT("退出软件\n");
+			tprint(T.exit,20);
+			tprint("\n");
 			cout<<TEXT("正在退出...");
 			system("color F"); 
 			exit(0);
@@ -249,13 +346,35 @@ void control(){
 	}
 } 
 void menu(){
-	tprint(TEXT("\n>年---月--日---时--分--秒--------"),20);
-	tprint(TEXT("---------Unix时间戳(1970年1月1日距今)---"),20);
-	tprint(TEXT("-计时--\n"),0);
+	if(lang==1){
+		tprint(TEXT("\n>>-年--月--日----时--分--秒-----"),20);
+		tprint(TEXT("Unix时间戳---"),20);
+		tprint(TEXT("-计时--\n"),0);
+	}else{
+		tprint(TEXT("\n>>YY-MM-D----H-MM-S------"),20);
+		tprint(TEXT("Unix Timestamps---"),20);
+		tprint(TEXT("-Timer--\n"),0);
+	}
 }
 void PRESS_ENTER_TO_CONTINUE(){
 	//功能相似的宏WAIT_PRESS_ENTER_AND_RETURN() 
-	cout<<TEXT("按回车键以继续...\n");
+	if(lang==1){
+		SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+		tprint("按",20);
+		SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+		tprint("回车键",30);
+		SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+		tprint("以继续...\n",20);
+		SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	}else{
+		SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+		tprint("Press",20);
+		SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+		tprint(" Enter",30);
+		SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+		tprint(" to continue...\n",20);
+		SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	}
 	for(;;){
 		if(KEY(VK_RETURN)){
            	menu();
@@ -270,7 +389,24 @@ void PRESS_SPACE_TO_CONTINUE(){
 	//建议在额外功能中使用PRESS_ENTER_TO_CONTINUE()函数 
 	
 	//功能相似的宏WAIT_PRESS_SPACE_AND_RETURN() 
-	cout<<TEXT("按空格键以继续...\n");
+	
+	if(lang==1){
+		SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+		tprint("按",20);
+		SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+		tprint("空格键",30);
+		SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+		tprint("以继续...\n",20);
+		SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	}else{
+		SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+		tprint("Press",20);
+		SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+		tprint(" Space",30);
+		SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+		tprint(" to continue...\n",20);
+		SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	}
 	for(;;){
 		if(KEY(' ')){
            	menu();
@@ -279,7 +415,7 @@ void PRESS_SPACE_TO_CONTINUE(){
     	Sleep(25);
 	}
 }
-void about(){
+void logo(){
 	tprint(TEXT("  /-------\\\t=== === ===    /==\\  ||          | =\n"),100);
 	tprint(TEXT(" /  -----  \\\t|     |   /    |    ====         |\n"),100);
 	tprint(TEXT("|===5 3 7===|\t=== ===  /     \\==\\  ||  |  |  /=| | /==\\\n"),100);
@@ -298,24 +434,28 @@ void about(){
 	   |  ||  |  | |  | | |  |
 	\\==/  ||  \\==/\\ \\=/\\| \\==/
 	*/
+}
+void about(){
+	logo();
 	tprint(TEXT("  "),15);
 	
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	tprint(TEXT(APP_NAME_L),15);
-	tprint(TEXT("\tVersion "),15);
+	tprint(TEXT(T.AppName),15);
+	tprint(TEXT("\t"),5);
+	tprint(T.Version,10);
+	tprint(" ");
 	tprint(TEXT(APP_VERSION),15);
 	tprint(TEXT("\t"),15);
 	
 	SetConsoleColor(FOREGROUND_BLUE | FOREGROUND_GREEN);
-	tprint(TEXT(APP_DEVELOPER),15);
-	tprint(TEXT("\t"),0);
-	tprint(TEXT(APP_WEBSITE),25);
+	tprint(TEXT(T.Support),15);
 	
 	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
 	tprint(TEXT("\n  "),5);
-	tprint(TEXT(APP_COPYRIGHT),30);
+	tprint(TEXT(T.Copyright),30);
 	
 	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	tprint("\n"); 
 	//MusicPlayer bgm;
 	//bgm.play("5,_ [1, 1_] 2_ 3 2_ 1_ [5, 1, 1-]");
 	/*
@@ -329,8 +469,7 @@ void about(){
 	*/
 }
 void color(){
-	Beep(so1,155);
-	Beep(so1,155);
+	//已停用 
 	Sleep(50);
 	
 	map<char, string> color_list{     //这个是颜色表

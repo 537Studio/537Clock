@@ -30,7 +30,7 @@ Press and hold the keyboard spacebar for about 1 second during the software oper
 
 > When the pause panel is opened, the ongoing timing operation is paused and the status is synced to the title.
 
-#### **Timer Zero** (1.1 and earlier versions are named "Timer Zero")
+#### **Timer Clear** (1.1 and earlier versions are named "Timer Zero")
 
 The software starts the clock from the moment it is running, and the time is measured in seconds and is displayed in the rightmost column of the window. Press the "T" button on the pause panel to reset the timer time, and when the zero panel is closed, the timer will start from 0 again, which is irreversible.
 
@@ -38,7 +38,7 @@ The software starts the clock from the moment it is running, and the time is mea
 
 Press the "A" button on the pause panel to display the software icon, version, and other related information, and there will be a selection sound and a software startup sound during the display, and there will be a comfortable character animation. After 0.2 seconds after the character interface is displayed, the software will automatically pop up an About window, which will display the current system information and software information, click "Confirm" to close. This window is a normal window type that can be preserved without conflicting with the stopwatch itself, and you can still perform other operations within the main window of the software even if you don't close the window.
 
-#### **Color Grading** (for version 1.0)
+#### **Change Color** (for version 1.0)
 
 Press the "C" button on the pause panel to perform the action. This option provides the ability to adjust the foreground color (color of the displayed text) of the console window by pressing the corresponding hexadecimal key (0-9, A-F), and the following colors are available:
 
@@ -54,15 +54,15 @@ Press the "C" button on the pause panel to perform the action. This option provi
 > **Note**: The color description comes from the built-in Command Prompt program (cmd.exe) of the Microsoft Windows operating system, and the actual display color may not be the same as the description color.
 > 537 Clock does not store color data, and the text color will revert to pale green after restarting.
 
-#### **Open Studio 537 Official Website** (for 1.1 and earlier)
+#### **Official Website** (for 1.1 and earlier)
 
 Press the "w" button in the pause panel to open the 537 official website with the default browser of the system (https://www.537studio.com), and the website will be launched in the future with the "537 Clock" software web online help document, but the relevant documents are still unfinished. This is just a test feature.
 
-#### **Email**
+#### **E-mail**
 
 Press the "e" button in the pause panel, the program will call the system's default email sending software (such as mail app, Outlook, etc.), and automatically create an email session, the recipient is the developer's mailbox (wushaoquan666@outlook.com), the email function is designed to allow users to get in touch with the developer, send error messages, questions, etc. for help and support.
 
-#### **User Agreement**
+#### **License**
 
 Press the "L" button on the pause panel. This software uses the GNU GPL-3.0 open source license, and the open source license web page (https://www.gnu.org/licenses/lgpl-3.0-standalone.html) will be opened using the default browser of the system.
 > The Software is open sourced under the GPL-3.0 open source license on the Gitee and GitHub platforms and is available for modification and distribution by anyone (Gitee: https://gitee.com/FTS-537Studio/537Clock; GitHub: https://github.com/537Studio/537Clock）。
@@ -75,7 +75,7 @@ Pressing the "o" button in the pause panel will display the addresses of all rep
 
 Pressing the "S" button in the pause panel will clear the screen with text animation and restore the state when the software was opened. Your timing data will be saved.
 
-#### **Keep Timing On**
+#### **Continue the Timer**
 
 If the user presses the spacebar by mistake or only wants to pause the timer, they can press the "x" key in the pause panel to restore the timer.
 
