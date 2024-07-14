@@ -239,6 +239,7 @@ void control(){
 			tprint(T.Support,20);
 			
 			SetConsoleColor(FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+			tprint("\n"); 
 			tprint(T.thewebsiteaddressis,50);
 			tprint(APP_WEBSITE,30);
 			tprint("\n");
