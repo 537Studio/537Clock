@@ -16,10 +16,10 @@
 #define LANG_EN_SG 0x4809 // 英语（新加坡）  
   
 // 中文变体  
-#define LANG_ZH_CN 0x0804 // 简体中文（中国）  
-#define LANG_ZH_TW 0x0404 // 繁体中文（台湾） 
-#define LANG_ZH_HK 0x7C04 // 繁体中文（香港），传统书写（非标准）  
-#define LANG_ZH_MO 0x9004 // 繁体中文（澳门），传统书写（非标准）  
+#define LANG_ZH_CN 0x0804 // 简体中文（中国大陆）  
+#define LANG_ZH_TW 0x0404 // 繁体中文（中国台湾省） 
+#define LANG_ZH_HK 0x7C04 // 繁体中文（中国香港特别行政区），传统书写（非标准）  
+#define LANG_ZH_MO 0x9004 // 繁体中文（中国澳门特别行政区），传统书写（非标准）  
   
 // 法语变体  
 #define LANG_FR_FR 0x040C // 法语（法国）  
