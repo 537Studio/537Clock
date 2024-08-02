@@ -14,6 +14,8 @@ int main(int argc, char* argv[]){
 		strcpy(T.title_AppName,APP_NAME_CN);
 		strcat(T.title_AppName," - ");
 		
+		strcpy(T.tip,TEXT_TIP_CN);
+		
 		strcpy(T.year,TEXT_YEAR_CN);
 		strcpy(T.month,TEXT_MONTH_CN);
 		strcpy(T.date,TEXT_DATE_CN);
@@ -56,6 +58,8 @@ int main(int argc, char* argv[]){
 		strcpy(T.title,APP_NAME_L);
 		strcpy(T.title_AppName,APP_NAME_L);
 		strcat(T.title_AppName," - ");
+		
+		strcpy(T.tip,TEXT_TIP);
 		
 		strcpy(T.year,TEXT_YEAR);
 		strcpy(T.month,TEXT_MONTH);
@@ -198,8 +202,8 @@ int main(int argc, char* argv[]){
     			strcat(T.title,T.paused);
     			SetConsoleTitle(TEXT(T.title));
     			control();
-			}
-			Sleep(20);
+		}
+		Sleep(20);
 	}
 	
     return 0;

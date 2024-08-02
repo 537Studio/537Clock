@@ -43,6 +43,8 @@ struct Text{
 	char title[MAX_PATH]={};
 	char title_AppName[MAX_PATH]={};
 	
+	char tip[MAX_PATH]={};
+	
 	char year[MAX_PATH]={};
 	char month[MAX_PATH]={};
 	char date[MAX_PATH]={};
@@ -248,6 +250,10 @@ void control(){
 			tprint(T.Copyright,60);
 			tprint("\n\n");
 			
+			SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+			tprint(T.tip,70);
+			tprint("\n\n");
+			
 			PRESS_ENTER_TO_CONTINUE();
 			return;
 		}else if(KEY('W')){
@@ -450,10 +456,14 @@ void about(){
 	
 	SetConsoleColor(FOREGROUND_BLUE | FOREGROUND_GREEN);
 	tprint(TEXT(T.Support),15);
-	
+	/*
 	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
 	tprint(TEXT("\n  "),5);
 	tprint(TEXT(T.Copyright),30);
+	*/
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+	tprint(TEXT("\n	 "),5);
+	tprint(TEXT(T.tip),50);
 	
 	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	tprint("\n"); 

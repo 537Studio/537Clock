@@ -23,6 +23,9 @@
 #define TEXT_BUILDVERSION "Build Version"
 #define TEXT_BUILDVERSION_CN "构建版本"
 
+#define TEXT_TIP "Call for a truce between Russia and Ukraine! Stop this senseless war!"
+#define TEXT_TIP_CN "呼吁俄乌两国停战！停止这场无意义的战争！" 
+
 #define TEXT_YEAR "."
 #define TEXT_YEAR_CN "年"
 #define TEXT_TIMER_YEAR_L "Year"
