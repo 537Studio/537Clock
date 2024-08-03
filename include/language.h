@@ -41,7 +41,7 @@
 
 #include <windows.h>
 int lang=0;
-void setlanguage(){
+void getlanguage(){
 	LANGID langID = GetUserDefaultUILanguage();
 	switch(langID){
 		case LANG_ZH_CN:

@@ -38,7 +38,7 @@
 #define TEXT_TIMER_MONTH_S "m"
 #define TEXT_TIMER_MONTH_CN "月"
 
-#define TEXT_DATE "."
+#define TEXT_DATE " "
 #define TEXT_DATE_CN "日"
 #define TEXT_TIMER_DATE_L "Date"
 #define TEXT_TIMER_DATE_S "d"
@@ -64,6 +64,13 @@
 
 #define TEXT_PAUSE_PANEL "Pause Panel"
 #define TEXT_PAUSE_PANEL_CN "暂停面板"
+
+#define TEXT_PAUSE_PANEL_LINE1 "------------"
+#define TEXT_PAUSE_PANEL_LINE1_CN "------------"
+#define TEXT_PAUSE_PANEL_LINE2 "------------------"
+#define TEXT_PAUSE_PANEL_LINE2_CN "------------------"
+#define TEXT_PAUSE_PANEL_LINE3 "-------------------\n"
+#define TEXT_PAUSE_PANEL_LINE3_CN "----------------------\n"
 
 #define TEXT_TIMER_CLEAR "Timer Clear"
 #define TEXT_TIMER_CLEAR_CN "计时清零"
@@ -110,3 +117,15 @@
 
 #define TEXT_THE_WEBSITE_ADDRESS_IS "The website address: https://"
 #define TEXT_THE_WEBSITE_ADDRESS_IS_CN "网站地址: https://"
+
+#define TEXT_THE_OFFICIAL_WEBSITE_HAS_BEEN_OPENED "The official website has been opened, "
+#define TEXT_THE_OFFICIAL_WEBSITE_HAS_BEEN_OPENED_CN "已打开官方网站，"
+
+#define TEXT_THE_EMAIL_WINDOW_HAS_BEEN_OPENED "The email window has been opened, "
+#define TEXT_THE_EMAIL_WINDOW_HAS_BEEN_OPENED_CN "已打开邮件窗口，"
+
+#define TEXT_THE_OPEN_SOURCE_LICENSE_WEBSITE_HAS_BEEN_OPENED "The open source license website has been opened, " 
+#define TEXT_THE_OPEN_SOURCE_LICENSE_WEBSITE_HAS_BEEN_OPENED_CN "已打开开源协议网站，" 
+
+#define TEXT_EXITING "Exiting..."
+#define TEXT_EXITING_CN "正在退出..."

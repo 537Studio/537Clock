@@ -1,103 +1,29 @@
 #include "include/text.h"
 #include "include/about.h"
+
+void menu(); 
+void logo();
+void about(); 
+void color();
+void PRESS_ENTER_TO_CONTINUE();
+void PRESS_SPACE_TO_CONTINUE();
+//慎用，由于537Clock1.1版本后按键灵敏度提高，注意不要和下一步操作按键重合 
+//否则用户若未及时抬起按键，将会再次触发暂停菜单 
+//建议在额外功能中使用PRESS_ENTER_TO_CONTINUE()函数
+void cls();
+void gotoxy(int x, int y);
+void SetConsoleColor(WORD color);
+
 int main(int argc, char* argv[]){
-	setlanguage();
-	if(lang==1){
-		strcpy(T.AppName,APP_NAME_CN);
-		strcpy(T.Version,TEXT_VERSION_CN);
-		strcpy(T.BuildVersion,TEXT_BUILDVERSION_CN);
-		
-		strcpy(T.Support,APP_SUPPORT_CN);
-		strcpy(T.Copyright,APP_COPYRIGHT_CN);
-		
-		strcpy(T.title,APP_NAME_CN);
-		strcpy(T.title_AppName,APP_NAME_CN);
-		strcat(T.title_AppName," - ");
-		
-		strcpy(T.tip,TEXT_TIP_CN);
-		
-		strcpy(T.year,TEXT_YEAR_CN);
-		strcpy(T.month,TEXT_MONTH_CN);
-		strcpy(T.date,TEXT_DATE_CN);
-		strcpy(T.hour,TEXT_HOUR_CN);
-		strcpy(T.min,TEXT_MIN_CN);
-		strcpy(T.sec,TEXT_SEC_CN);
-		
-		strcpy(T.timer_year,TEXT_TIMER_YEAR_CN);
-		strcpy(T.timer_month,TEXT_TIMER_MONTH_CN);
-		strcpy(T.timer_date,TEXT_TIMER_DATE_CN);
-		strcpy(T.timer_hour,TEXT_TIMER_HOUR_CN);
-		strcpy(T.timer_min,TEXT_TIMER_MIN_CN);
-		strcpy(T.timer_sec,TEXT_TIMER_SEC_CN);
-		
-		strcpy(T.pausepanel,TEXT_PAUSE_PANEL_CN);
-		strcpy(T.timerclear,TEXT_TIMER_CLEAR_CN);
-		strcpy(T.abouttheprogram,TEXT_ABOUT_THE_PROGRAM_CN);
-		strcpy(T.changecolor,TEXT_CHANGE_COLOR_CN);
-		strcpy(T.officialwebsite,TEXT_OFFICIAL_WEBSITE_CN);
-		strcpy(T.email,TEXT_EMAIL_CN);
-		strcpy(T.license,TEXT_LICENSE_CN);
-		strcpy(T.opensourcewebsite,TEXT_OPEN_SOURCE_WEBSITE_CN);
-		strcpy(T.clearscreen,TEXT_CLEAR_SCREEN_CN);
-		strcpy(T.continuethetimer,TEXT_CONTINUE_THE_TIMER_CN);
-		strcpy(T.exit,TEXT_EXIT_CN);
-		
-		strcpy(T.paused,TEXT_PAUSED_CN);
-		strcpy(T.pressthekey,TEXT_PRESS_THE_KEY_CN);
-		strcpy(T.pressthekeytoenablethefunction,TEXT_PRESS_THE_KEY_TO_ENABLE_THE_FUNCTION_CN); 
-		strcpy(T.timeclear,TEXT_TIME_CLEAR_CN);
-		strcpy(T.thewebsiteaddressis,TEXT_THE_WEBSITE_ADDRESS_IS_CN);
-	}else{
-		strcpy(T.AppName,APP_NAME_L);
-		strcpy(T.Version,TEXT_VERSION);
-		strcpy(T.BuildVersion,TEXT_BUILDVERSION);
-		
-		strcpy(T.Support,APP_SUPPORT);
-		strcpy(T.Copyright,APP_COPYRIGHT);
-		
-		strcpy(T.title,APP_NAME_L);
-		strcpy(T.title_AppName,APP_NAME_L);
-		strcat(T.title_AppName," - ");
-		
-		strcpy(T.tip,TEXT_TIP);
-		
-		strcpy(T.year,TEXT_YEAR);
-		strcpy(T.month,TEXT_MONTH);
-		strcpy(T.date,TEXT_DATE);
-		strcpy(T.hour,TEXT_HOUR);
-		strcpy(T.min,TEXT_MIN);
-		strcpy(T.sec,TEXT_SEC);
-		
-		strcpy(T.timer_year,TEXT_TIMER_YEAR_S);
-		strcpy(T.timer_month,TEXT_TIMER_MONTH_S);
-		strcpy(T.timer_date,TEXT_TIMER_DATE_S);
-		strcpy(T.timer_hour,TEXT_TIMER_HOUR_S);
-		strcpy(T.timer_min,TEXT_TIMER_MIN_S);
-		strcpy(T.timer_sec,TEXT_TIMER_SEC_S);
-		
-		strcpy(T.pausepanel,TEXT_PAUSE_PANEL);
-		strcpy(T.timerclear,TEXT_TIMER_CLEAR);
-		strcpy(T.abouttheprogram,TEXT_ABOUT_THE_PROGRAM);
-		strcpy(T.changecolor,TEXT_CHANGE_COLOR);
-		strcpy(T.officialwebsite,TEXT_OFFICIAL_WEBSITE);
-		strcpy(T.email,TEXT_EMAIL);
-		strcpy(T.license,TEXT_LICENSE);
-		strcpy(T.opensourcewebsite,TEXT_OPEN_SOURCE_WEBSITE);
-		strcpy(T.clearscreen,TEXT_CLEAR_SCREEN);
-		strcpy(T.continuethetimer,TEXT_CONTINUE_THE_TIMER);
-		strcpy(T.exit,TEXT_EXIT);
-		
-		strcpy(T.paused,TEXT_PAUSED);
-		strcpy(T.pressthekey,TEXT_PRESS_THE_KEY);
-		strcpy(T.pressthekeytoenablethefunction,TEXT_PRESS_THE_KEY_TO_ENABLE_THE_FUNCTION);
-		strcpy(T.timeclear,TEXT_TIME_CLEAR);
-		strcpy(T.thewebsiteaddressis,TEXT_THE_WEBSITE_ADDRESS_IS);
-	}
+	getlanguage();
+	
 	SetConsoleTitle(TEXT(T.AppName));
-	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	
 	if(argc!=1){//带参数启动 
 		if(string(argv[1])=="--ver" || string(argv[1])=="--version" || string(argv[1])=="-v"){ 
+			setlanguage(lang);
+			
+			SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
     		tprint(T.AppName,40);
     		tprint("\t");
     		SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
@@ -113,7 +39,24 @@ int main(int argc, char* argv[]){
 			tprint("\n",20);
 			return 0;
     	}
+		if(string(argv[1])=="/lan" || string(argv[1])=="/lang"){
+    		if(string(argv[2])=="cn" || string(argv[2])=="chinese" || string(argv[2])=="Chinese" || string(argv[2])=="zh-CN" || string(argv[2])=="zh-TW" || string(argv[2])=="zh-HK" || string(argv[2])=="zh-MO"){
+    			tprint("在简体中文模式下运行\n");
+    			lang=1;
+    			setlanguage(lang);
+			}else if(string(argv[2])=="en" || string(argv[2])=="english" || string(argv[2])=="English" || string(argv[2])=="en-US" || string(argv[2])=="en-GB" || string(argv[2])=="en-AU" || string(argv[2])=="en-CA" || string(argv[2])=="en-NZ" || string(argv[2])=="en-IE" || string(argv[2])=="en-ZA" || string(argv[2])=="en-JM" || string(argv[2])=="en-TT" || string(argv[2])=="en-PH" || string(argv[2])=="en-IN" || string(argv[2])=="en-MY" || string(argv[2])=="en-SG"){
+				tprint("Run in the English mode\n");
+				lang=2;
+				setlanguage(lang);
+			}else{
+				setlanguage(lang);
+			}
+		} 
+	}else{
+		setlanguage(lang);
 	}
+	
+	
 	
 	about();
 	menu();
