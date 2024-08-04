@@ -346,7 +346,7 @@ void control(){
 		}else if(KEY('Q')){
 			tprint(T.exit,20);
 			tprint("\n");
-			cout<<TEXT("ÕýÔÚÍË³ö...");
+			tprint(T.exiting,20);
 			system("color F"); 
 			exit(0);
 		}
