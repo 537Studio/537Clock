@@ -2,8 +2,8 @@
 #define APP_NAME_S "537Clock"
 #define APP_NAME_CN "537秒表"
 
-#define APP_VERSION 1.3
-#define APP_BUILDVERSION "2024.7.12"
+#define APP_VERSION "1.3 Beta" 
+#define APP_BUILDVERSION "2024.8.7"
 
 #define APP_IDEA "Less is more"
 #define APP_IDEA_CN "少即是多"
