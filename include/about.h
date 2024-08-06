@@ -10,12 +10,16 @@
 
 #define APP_DEVELOPER "537 Studio"
 #define APP_DEVELOPER_CN "537工作室"
-#define APP_WEBSITE "www.537studio.com"
+#define APP_DEVELOPER_SHORTHAND "537"
+#define APP_WEBSITE "https://www.537studio.com"
 #define APP_EMAIL "hello@537studio.com"
 #define APP_SUPPORT "Powered by 537 Studio"
 #define APP_SUPPORT_CN "由 537工作室 提供支持"
 #define APP_COPYRIGHT "Copyright (C) 537 Studio. 2023-2024. All rights reserved."
 #define APP_COPYRIGHT_CN "版权所有 (C) 537工作室. 2023-2024. 保留所有权利."
+#define APP_OPENSOUCE_ADDRESS_LISENCE "https://www.gnu.org/licenses/lgpl-3.0-standalone.html"
+#define APP_OPENSOURCE_ADDRESS_GITEE "https://gitee.com/FTS-537Studio/537Clock"
+#define APP_OPENSOURCE_ADDRESS_GITHUB "https://github.com/537Studio/537Clock"
 
 #define TEXT_VERSION "Version"
 #define TEXT_VERSION_CN "版本"
@@ -102,6 +106,8 @@
 #define TEXT_EXIT "Exit"
 #define TEXT_EXIT_CN "退出程序"
 
+#define TEXT_CANCEL "Cancel"
+#define TEXT_CANCEL_CN "取消"
 
 #define TEXT_PAUSED "Paused"
 #define TEXT_PAUSED_CN "已暂停"
@@ -112,20 +118,26 @@
 #define TEXT_PRESS_THE_KEY_TO_ENABLE_THE_FUNCTION "Press the key to enable the function"
 #define TEXT_PRESS_THE_KEY_TO_ENABLE_THE_FUNCTION_CN "按下按键以启用功能"
 
-#define TEXT_TIME_CLEAR "Time has been cleared, "
+#define TEXT_TIME_CLEAR "Time has been cleared. "
 #define TEXT_TIME_CLEAR_CN "时间已清零，"
 
 #define TEXT_THE_WEBSITE_ADDRESS_IS "The website address: https://"
 #define TEXT_THE_WEBSITE_ADDRESS_IS_CN "网站地址: https://"
 
-#define TEXT_THE_OFFICIAL_WEBSITE_HAS_BEEN_OPENED "The official website has been opened, "
+#define TEXT_THE_OFFICIAL_WEBSITE_HAS_BEEN_OPENED "The official website has been opened. "
 #define TEXT_THE_OFFICIAL_WEBSITE_HAS_BEEN_OPENED_CN "已打开官方网站，"
 
-#define TEXT_THE_EMAIL_WINDOW_HAS_BEEN_OPENED "The email window has been opened, "
+#define TEXT_THE_EMAIL_WINDOW_HAS_BEEN_OPENED "The email window has been opened. "
 #define TEXT_THE_EMAIL_WINDOW_HAS_BEEN_OPENED_CN "已打开邮件窗口，"
 
-#define TEXT_THE_OPEN_SOURCE_LICENSE_WEBSITE_HAS_BEEN_OPENED "The open source license website has been opened, " 
+#define TEXT_THE_OPEN_SOURCE_LICENSE_WEBSITE_HAS_BEEN_OPENED "The open source license website has been opened. " 
 #define TEXT_THE_OPEN_SOURCE_LICENSE_WEBSITE_HAS_BEEN_OPENED_CN "已打开开源协议网站，" 
+
+#define TEXT_SELECT_THE_WEBSITE "Please select the site you want to visit"
+#define TEXT_SELECT_THE_WEBSITE_CN "请选择要访问的站点"
+
+#define TEXT_ALREADY_OPEN "Already open "
+#define TEXT_ALREADY_OPEN_CN "已打开 "
 
 #define TEXT_EXITING "Exiting..."
 #define TEXT_EXITING_CN "正在退出..."

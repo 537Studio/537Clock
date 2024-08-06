@@ -74,6 +74,7 @@ struct Text{
 	char continuethetimer[MAX_PATH]={}; 
 	char exit[MAX_PATH]={};
 	
+	char cancel[MAX_PATH]={};
 	char paused[MAX_PATH]={};
 	char pressthekey[MAX_PATH]={};
 	char pressthekeytoenablethefunction[MAX_PATH]={};
@@ -82,6 +83,8 @@ struct Text{
 	char the_official_website_has_been_opened[MAX_PATH]={};
 	char the_email_window_has_been_opened[MAX_PATH]={};
 	char the_open_source_license_website_has_been_opened[MAX_PATH]={};
+	char select_the_website[MAX_PATH]={};
+	char already_open[MAX_PATH]={};
 	char exiting[MAX_PATH]={};
 }T;
 struct TimeInfo{
@@ -115,6 +118,7 @@ void menu();
 void logo();
 void about(); 
 void color();
+void waitpress();
 void PRESS_ENTER_TO_CONTINUE();
 void PRESS_SPACE_TO_CONTINUE();
 //慎用，由于537Clock1.1版本后按键灵敏度提高，注意不要和下一步操作按键重合 
@@ -192,17 +196,7 @@ void control(){
 	tprint(T.exit, 80);
 	tprint("\n",30);
 	
-	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
-	tprint("\n>",10);
-	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	tprint("537",30);
-	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
-	tprint(">>",10);
-	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-	tprint(T.pressthekey,10);
-	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
-	tprint(">>",10);
-	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	waitpress();
 	while(true){
 		if (KEY('T')){
 			bgm.play("[5^ 3^ 1]");
@@ -259,7 +253,8 @@ void control(){
 			tprint(T.officialwebsite,20);
 			tprint("\n\n");
 			bgm.play("[5^ 3^ 1]");
-			ShellExecute(NULL,"open","https://www.537studio.com",NULL,NULL,SW_SHOWNORMAL);
+			ShellExecute(NULL,"open",APP_WEBSITE,NULL,NULL,SW_SHOWNORMAL);
+			SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
 			tprint(T.the_official_website_has_been_opened);
 			PRESS_ENTER_TO_CONTINUE();
 			return;
@@ -278,7 +273,7 @@ void control(){
 			tprint(T.license,20);
 			tprint("\n\n");
 			bgm.play("[5^ 3^ 1]");
-			ShellExecute(NULL,"open","https://www.gnu.org/licenses/lgpl-3.0-standalone.html",NULL,NULL,SW_SHOWNORMAL);
+			ShellExecute(NULL,"open",APP_OPENSOUCE_ADDRESS_LISENCE,NULL,NULL,SW_SHOWNORMAL);
 			SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
 			tprint(T.the_open_source_license_website_has_been_opened,50);
 			PRESS_ENTER_TO_CONTINUE();
@@ -287,42 +282,52 @@ void control(){
 			tprint(T.opensourcewebsite,20);
 			tprint("\n\n");
 			bgm.play("[5^ 3^ 1]");
-			tprint(TEXT("请选择要访问的站点\n"),30);
+			tprint(TEXT(T.select_the_website),30);
+			tprint("\n");
 			SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-			cout<<TEXT("1");
+			cout<<TEXT("1\t");
+			SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+			tprint(TEXT("Gitee: "),30);
 			SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-			tprint(TEXT("\tGitee："),30);
-			tprint(TEXT("https://gitee.com/FTS-537Studio/537Clock\n"),30);
+			tprint(TEXT(APP_OPENSOURCE_ADDRESS_GITEE),30);
+			tprint("\n");
 			
 			SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-			cout<<TEXT("2");
+			cout<<TEXT("2\t");
+			SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+			tprint(TEXT("GitHub: "),30);
 			SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-			tprint(TEXT("\tGitHub："),30);
-			tprint(TEXT("https://github.com/537Studio/537Clock\n"),30);
+			tprint(TEXT(APP_OPENSOURCE_ADDRESS_GITHUB),30);
+			tprint("\n");
 			
-			SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+			SetConsoleColor(FOREGROUND_RED | FOREGROUND_INTENSITY);
 			cout<<TEXT("ESC");
-			SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-			tprint(TEXT("\t取消\n"),30);
-			tprint(TEXT("\n>537>>按下按键>>"),30);
+			SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE |FOREGROUND_INTENSITY);
+			tprint(TEXT("\t"),10);
+			tprint(TEXT(T.cancel),10);
+			tprint(TEXT("\n"));
+			waitpress();
 			
 			while(true){
 				if(KEY('1')){ 
             		cout<<TEXT("Gitee\n\n");
             		bgm.play("[5 3^]");
-					ShellExecute(NULL,"open","https://gitee.com/FTS-537Studio/537Clock",NULL,NULL,SW_SHOWNORMAL);
-					cout<<TEXT("已打开Gitee\n");
+					ShellExecute(NULL,"open",APP_OPENSOURCE_ADDRESS_GITEE,NULL,NULL,SW_SHOWNORMAL);
+					tprint(T.already_open,10);
+					tprint("Gitee\n");
 					PRESS_ENTER_TO_CONTINUE();
 					return;
         		}else if(KEY('2')){ 
             		cout<<TEXT("GitHub\n\n");
             		bgm.play("[5 3^]");
-					ShellExecute(NULL,"open","https://github.com/537Studio/537Clock",NULL,NULL,SW_SHOWNORMAL);
-					cout<<TEXT("已打开GitHub\n");
+					ShellExecute(NULL,"open",APP_OPENSOURCE_ADDRESS_GITEE,NULL,NULL,SW_SHOWNORMAL);
+					tprint(T.already_open,10);
+					tprint("GitHub\n");
 					PRESS_ENTER_TO_CONTINUE();
 					return;
         		}else if(KEY(VK_ESCAPE)){
-        			cout<<TEXT("取消\n\n");
+        			tprint(T.cancel,10);
+        			tprint("\n\n",20);
         			bgm.play("3_ 3");
         			menu();
 					return;
@@ -409,6 +414,7 @@ void setlanguage(int lan){
 		strcpy(T.continuethetimer,TEXT_CONTINUE_THE_TIMER_CN);
 		strcpy(T.exit,TEXT_EXIT_CN);
 		
+		strcpy(T.cancel,TEXT_CANCEL_CN);
 		strcpy(T.paused,TEXT_PAUSED_CN);
 		strcpy(T.pressthekey,TEXT_PRESS_THE_KEY_CN);
 		strcpy(T.pressthekeytoenablethefunction,TEXT_PRESS_THE_KEY_TO_ENABLE_THE_FUNCTION_CN); 
@@ -417,6 +423,8 @@ void setlanguage(int lan){
 		strcpy(T.the_official_website_has_been_opened,TEXT_THE_OFFICIAL_WEBSITE_HAS_BEEN_OPENED_CN);
 		strcpy(T.the_email_window_has_been_opened,TEXT_THE_EMAIL_WINDOW_HAS_BEEN_OPENED_CN);
 		strcpy(T.the_open_source_license_website_has_been_opened,TEXT_THE_OPEN_SOURCE_LICENSE_WEBSITE_HAS_BEEN_OPENED_CN);
+		strcpy(T.select_the_website,TEXT_SELECT_THE_WEBSITE_CN);
+		strcpy(T.already_open,TEXT_ALREADY_OPEN_CN);
 		strcpy(T.exiting,TEXT_EXITING_CN);
 	}else{//英文 
 		strcpy(T.AppName,APP_NAME_L);
@@ -461,6 +469,7 @@ void setlanguage(int lan){
 		strcpy(T.continuethetimer,TEXT_CONTINUE_THE_TIMER);
 		strcpy(T.exit,TEXT_EXIT);
 		
+		strcpy(T.cancel,TEXT_CANCEL);
 		strcpy(T.paused,TEXT_PAUSED);
 		strcpy(T.pressthekey,TEXT_PRESS_THE_KEY);
 		strcpy(T.pressthekeytoenablethefunction,TEXT_PRESS_THE_KEY_TO_ENABLE_THE_FUNCTION);
@@ -469,6 +478,8 @@ void setlanguage(int lan){
 		strcpy(T.the_official_website_has_been_opened,TEXT_THE_OFFICIAL_WEBSITE_HAS_BEEN_OPENED);
 		strcpy(T.the_email_window_has_been_opened,TEXT_THE_EMAIL_WINDOW_HAS_BEEN_OPENED);
 		strcpy(T.the_open_source_license_website_has_been_opened,TEXT_THE_OPEN_SOURCE_LICENSE_WEBSITE_HAS_BEEN_OPENED);
+		strcpy(T.select_the_website,TEXT_SELECT_THE_WEBSITE);
+		strcpy(T.already_open,TEXT_ALREADY_OPEN);
 		strcpy(T.exiting,TEXT_EXITING);
 	}
 }
@@ -596,6 +607,19 @@ void about(){
 	Beep(so1,315);
 	*/
 }
+void waitpress(){
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+	tprint("\n>",10);
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	tprint(APP_DEVELOPER_SHORTHAND,30);
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+	tprint(">>",10);
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+	tprint(T.pressthekey,10);
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+	tprint(">>",10);
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+} 
 void color(){
 	//已停用 
 	Sleep(50);
