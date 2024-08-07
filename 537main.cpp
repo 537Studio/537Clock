@@ -43,7 +43,7 @@ int main(int argc, char* argv[]){
     			setlanguage(lang);
 			}else if(string(argv[2])=="en" || string(argv[2])=="english" || string(argv[2])=="English" || string(argv[2])=="en-US" || string(argv[2])=="en-GB" || string(argv[2])=="en-AU" || string(argv[2])=="en-CA" || string(argv[2])=="en-NZ" || string(argv[2])=="en-IE" || string(argv[2])=="en-ZA" || string(argv[2])=="en-JM" || string(argv[2])=="en-TT" || string(argv[2])=="en-PH" || string(argv[2])=="en-IN" || string(argv[2])=="en-MY" || string(argv[2])=="en-SG"){
 				tprint("Run in the English mode\n");
-				lang=2;
+				lang=0;
 				setlanguage(lang);
 			}else{
 				setlanguage(lang);
