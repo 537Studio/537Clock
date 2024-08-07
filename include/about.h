@@ -23,8 +23,10 @@ Copyright (C) 537 Studio. 2023-2024. All rights reserved.
 #define APP_EMAIL "hello@537studio.com"
 #define APP_SUPPORT "Powered by 537 Studio"
 #define APP_SUPPORT_CN "由 537工作室 提供支持"
+#define APP_SUPPORT_CN_TR "由 537工作室 提供支援"
 #define APP_COPYRIGHT "Copyright (C) 537 Studio. 2023-2024. All rights reserved."
 #define APP_COPYRIGHT_CN "版权所有 (C) 537工作室. 2023-2024. 保留所有权利."
+#define APP_COPYRIGHT_CN_TR "版權所有 (C) 537工作室. 2023-2024. 保留所有權利."
 #define APP_OPENSOUCE_ADDRESS_LISENCE "https://www.gnu.org/licenses/lgpl-3.0-standalone.html"
 #define APP_OPENSOURCE_ADDRESS_GITEE "https://gitee.com/FTS-537Studio/537Clock"
 #define APP_OPENSOURCE_ADDRESS_GITHUB "https://github.com/537Studio/537Clock"
@@ -34,9 +36,11 @@ Copyright (C) 537 Studio. 2023-2024. All rights reserved.
 
 #define TEXT_BUILDVERSION "Build Version"
 #define TEXT_BUILDVERSION_CN "构建版本"
+#define TEXT_BUILDVERSION_CN_TR "構建版本"
 
 #define TEXT_TIP "Call for a truce between Russia and Ukraine! Stop this senseless war!"
 #define TEXT_TIP_CN "呼吁俄乌两国停战！停止这场无意义的战争！" 
+#define TEXT_TIP_CN_TR "呼籲俄烏兩國停戰！ 停止這場無意義的戰爭！" 
 
 #define TEXT_YEAR "."
 #define TEXT_YEAR_CN "年"
