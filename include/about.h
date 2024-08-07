@@ -10,8 +10,8 @@ Copyright (C) 537 Studio. 2023-2024. All rights reserved.
 #define APP_NAME_S "537Clock"
 #define APP_NAME_CN "537秒表"
 
-#define APP_VERSION "1.3 Beta" 
-#define APP_BUILDVERSION "2024.8.7"
+#define APP_VERSION "1.3 Beta2" 
+#define APP_BUILDVERSION "2024.8.7.02"
 
 #define APP_IDEA "Less is more"
 #define APP_IDEA_CN "少即是多"
@@ -129,8 +129,8 @@ Copyright (C) 537 Studio. 2023-2024. All rights reserved.
 #define TEXT_TIME_CLEAR "Time has been cleared. "
 #define TEXT_TIME_CLEAR_CN "时间已清零，"
 
-#define TEXT_THE_WEBSITE_ADDRESS_IS "The website address: https://"
-#define TEXT_THE_WEBSITE_ADDRESS_IS_CN "网站地址: https://"
+#define TEXT_THE_WEBSITE_ADDRESS_IS "The website address: "
+#define TEXT_THE_WEBSITE_ADDRESS_IS_CN "网站地址: "
 
 #define TEXT_THE_OFFICIAL_WEBSITE_HAS_BEEN_OPENED "The official website has been opened. "
 #define TEXT_THE_OFFICIAL_WEBSITE_HAS_BEEN_OPENED_CN "已打开官方网站，"
