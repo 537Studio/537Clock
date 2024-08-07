@@ -331,7 +331,7 @@ void control(){
         		}else if(KEY('2')){ 
             		cout<<TEXT("GitHub\n\n");
             		bgm.play("[5 3^]");
-					ShellExecute(NULL,"open",APP_OPENSOURCE_ADDRESS_GITEE,NULL,NULL,SW_SHOWNORMAL);
+					ShellExecute(NULL,"open",APP_OPENSOURCE_ADDRESS_GITHUB,NULL,NULL,SW_SHOWNORMAL);
 					tprint(T.already_open,10);
 					tprint("GitHub\n");
 					PRESS_ENTER_TO_CONTINUE();
@@ -375,6 +375,10 @@ void menu(){
 		tprint(TEXT("\n>>-年--月--日----时--分--秒-----"),20);
 		tprint(TEXT("Unix时间戳-----"),20);
 		tprint(TEXT("-计时----------------------------\n"),0);
+	}else if(lang==2){
+		tprint(TEXT("\n>>-年--月--日----時--分--秒-----"),20);
+		tprint(TEXT("Unix時間戳-----"),20);
+		tprint(TEXT("-計時----------------------------\n"),0);
 	}else{
 		tprint(TEXT("\n>>YY-MM-D--------H-MM-S----"),20);
 		tprint(TEXT("Unix Timestamps---"),20);
@@ -382,117 +386,180 @@ void menu(){
 	}
 }
 void setlanguage(int lan){
-	if(lan==1){//简体中文 
-		strcpy(T.AppName,APP_NAME_CN);
-		strcpy(T.Version,TEXT_VERSION_CN);
-		strcpy(T.BuildVersion,TEXT_BUILDVERSION_CN);
-		
-		strcpy(T.Support,APP_SUPPORT_CN);
-		strcpy(T.Copyright,APP_COPYRIGHT_CN);
-		
-		strcpy(T.title,APP_NAME_CN);
-		strcpy(T.title_AppName,APP_NAME_CN);
-		strcat(T.title_AppName," - ");
-		
-		strcpy(T.tip,TEXT_TIP_CN);
-		
-		strcpy(T.year,TEXT_YEAR_CN);
-		strcpy(T.month,TEXT_MONTH_CN);
-		strcpy(T.date,TEXT_DATE_CN);
-		strcpy(T.hour,TEXT_HOUR_CN);
-		strcpy(T.min,TEXT_MIN_CN);
-		strcpy(T.sec,TEXT_SEC_CN);
-		
-		strcpy(T.timer_year,TEXT_TIMER_YEAR_CN);
-		strcpy(T.timer_month,TEXT_TIMER_MONTH_CN);
-		strcpy(T.timer_date,TEXT_TIMER_DATE_CN);
-		strcpy(T.timer_hour,TEXT_TIMER_HOUR_CN);
-		strcpy(T.timer_min,TEXT_TIMER_MIN_CN);
-		strcpy(T.timer_sec,TEXT_TIMER_SEC_CN);
-		
-		strcpy(T.pausepanel,TEXT_PAUSE_PANEL_CN);
-		strcpy(T.pausepanel_line1,TEXT_PAUSE_PANEL_LINE1_CN);
-		strcpy(T.pausepanel_line2,TEXT_PAUSE_PANEL_LINE2_CN);
-		strcpy(T.pausepanel_line3,TEXT_PAUSE_PANEL_LINE3_CN);
-		strcpy(T.timerclear,TEXT_TIMER_CLEAR_CN);
-		strcpy(T.abouttheprogram,TEXT_ABOUT_THE_PROGRAM_CN);
-		strcpy(T.changecolor,TEXT_CHANGE_COLOR_CN);
-		strcpy(T.officialwebsite,TEXT_OFFICIAL_WEBSITE_CN);
-		strcpy(T.email,TEXT_EMAIL_CN);
-		strcpy(T.license,TEXT_LICENSE_CN);
-		strcpy(T.opensourcewebsite,TEXT_OPEN_SOURCE_WEBSITE_CN);
-		strcpy(T.clearscreen,TEXT_CLEAR_SCREEN_CN);
-		strcpy(T.continuethetimer,TEXT_CONTINUE_THE_TIMER_CN);
-		strcpy(T.exit,TEXT_EXIT_CN);
-		
-		strcpy(T.cancel,TEXT_CANCEL_CN);
-		strcpy(T.paused,TEXT_PAUSED_CN);
-		strcpy(T.pressthekey,TEXT_PRESS_THE_KEY_CN);
-		strcpy(T.pressthekeytoenablethefunction,TEXT_PRESS_THE_KEY_TO_ENABLE_THE_FUNCTION_CN); 
-		strcpy(T.timeclear,TEXT_TIME_CLEAR_CN);
-		strcpy(T.thewebsiteaddressis,TEXT_THE_WEBSITE_ADDRESS_IS_CN);
-		strcpy(T.the_official_website_has_been_opened,TEXT_THE_OFFICIAL_WEBSITE_HAS_BEEN_OPENED_CN);
-		strcpy(T.the_email_window_has_been_opened,TEXT_THE_EMAIL_WINDOW_HAS_BEEN_OPENED_CN);
-		strcpy(T.the_open_source_license_website_has_been_opened,TEXT_THE_OPEN_SOURCE_LICENSE_WEBSITE_HAS_BEEN_OPENED_CN);
-		strcpy(T.select_the_website,TEXT_SELECT_THE_WEBSITE_CN);
-		strcpy(T.already_open,TEXT_ALREADY_OPEN_CN);
-		strcpy(T.exiting,TEXT_EXITING_CN);
-	}else{//英文 
-		strcpy(T.AppName,APP_NAME_L);
-		strcpy(T.Version,TEXT_VERSION);
-		strcpy(T.BuildVersion,TEXT_BUILDVERSION);
-		
-		strcpy(T.Support,APP_SUPPORT);
-		strcpy(T.Copyright,APP_COPYRIGHT);
-		
-		strcpy(T.title,APP_NAME_L);
-		strcpy(T.title_AppName,APP_NAME_L);
-		strcat(T.title_AppName," - ");
-		
-		strcpy(T.tip,TEXT_TIP);
-		
-		strcpy(T.year,TEXT_YEAR);
-		strcpy(T.month,TEXT_MONTH);
-		strcpy(T.date,TEXT_DATE);
-		strcpy(T.hour,TEXT_HOUR);
-		strcpy(T.min,TEXT_MIN);
-		strcpy(T.sec,TEXT_SEC);
-		
-		strcpy(T.timer_year,TEXT_TIMER_YEAR_S);
-		strcpy(T.timer_month,TEXT_TIMER_MONTH_S);
-		strcpy(T.timer_date,TEXT_TIMER_DATE_S);
-		strcpy(T.timer_hour,TEXT_TIMER_HOUR_S);
-		strcpy(T.timer_min,TEXT_TIMER_MIN_S);
-		strcpy(T.timer_sec,TEXT_TIMER_SEC_S);
-		
-		strcpy(T.pausepanel,TEXT_PAUSE_PANEL);
-		strcpy(T.pausepanel_line1,TEXT_PAUSE_PANEL_LINE1);
-		strcpy(T.pausepanel_line2,TEXT_PAUSE_PANEL_LINE2);
-		strcpy(T.pausepanel_line3,TEXT_PAUSE_PANEL_LINE3);
-		strcpy(T.timerclear,TEXT_TIMER_CLEAR);
-		strcpy(T.abouttheprogram,TEXT_ABOUT_THE_PROGRAM);
-		strcpy(T.changecolor,TEXT_CHANGE_COLOR);
-		strcpy(T.officialwebsite,TEXT_OFFICIAL_WEBSITE);
-		strcpy(T.email,TEXT_EMAIL);
-		strcpy(T.license,TEXT_LICENSE);
-		strcpy(T.opensourcewebsite,TEXT_OPEN_SOURCE_WEBSITE);
-		strcpy(T.clearscreen,TEXT_CLEAR_SCREEN);
-		strcpy(T.continuethetimer,TEXT_CONTINUE_THE_TIMER);
-		strcpy(T.exit,TEXT_EXIT);
-		
-		strcpy(T.cancel,TEXT_CANCEL);
-		strcpy(T.paused,TEXT_PAUSED);
-		strcpy(T.pressthekey,TEXT_PRESS_THE_KEY);
-		strcpy(T.pressthekeytoenablethefunction,TEXT_PRESS_THE_KEY_TO_ENABLE_THE_FUNCTION);
-		strcpy(T.timeclear,TEXT_TIME_CLEAR);
-		strcpy(T.thewebsiteaddressis,TEXT_THE_WEBSITE_ADDRESS_IS);
-		strcpy(T.the_official_website_has_been_opened,TEXT_THE_OFFICIAL_WEBSITE_HAS_BEEN_OPENED);
-		strcpy(T.the_email_window_has_been_opened,TEXT_THE_EMAIL_WINDOW_HAS_BEEN_OPENED);
-		strcpy(T.the_open_source_license_website_has_been_opened,TEXT_THE_OPEN_SOURCE_LICENSE_WEBSITE_HAS_BEEN_OPENED);
-		strcpy(T.select_the_website,TEXT_SELECT_THE_WEBSITE);
-		strcpy(T.already_open,TEXT_ALREADY_OPEN);
-		strcpy(T.exiting,TEXT_EXITING);
+	switch(lan){
+		case ZH_CN://简体中文 
+			strcpy(T.AppName,APP_NAME_CN);
+			strcpy(T.Version,TEXT_VERSION_CN);
+			strcpy(T.BuildVersion,TEXT_BUILDVERSION_CN);
+			
+			strcpy(T.Support,APP_SUPPORT_CN);
+			strcpy(T.Copyright,APP_COPYRIGHT_CN);
+			
+			strcpy(T.title,APP_NAME_CN);
+			strcpy(T.title_AppName,APP_NAME_CN);
+			strcat(T.title_AppName," - ");
+			
+			strcpy(T.tip,TEXT_TIP_CN);
+			
+			strcpy(T.year,TEXT_YEAR_CN);
+			strcpy(T.month,TEXT_MONTH_CN);
+			strcpy(T.date,TEXT_DATE_CN);
+			strcpy(T.hour,TEXT_HOUR_CN);
+			strcpy(T.min,TEXT_MIN_CN);
+			strcpy(T.sec,TEXT_SEC_CN);
+			
+			strcpy(T.timer_year,TEXT_TIMER_YEAR_CN);
+			strcpy(T.timer_month,TEXT_TIMER_MONTH_CN);
+			strcpy(T.timer_date,TEXT_TIMER_DATE_CN);
+			strcpy(T.timer_hour,TEXT_TIMER_HOUR_CN);
+			strcpy(T.timer_min,TEXT_TIMER_MIN_CN);
+			strcpy(T.timer_sec,TEXT_TIMER_SEC_CN);
+			
+			strcpy(T.pausepanel,TEXT_PAUSE_PANEL_CN);
+			strcpy(T.pausepanel_line1,TEXT_PAUSE_PANEL_LINE1_CN);
+			strcpy(T.pausepanel_line2,TEXT_PAUSE_PANEL_LINE2_CN);
+			strcpy(T.pausepanel_line3,TEXT_PAUSE_PANEL_LINE3_CN);
+			strcpy(T.timerclear,TEXT_TIMER_CLEAR_CN);
+			strcpy(T.abouttheprogram,TEXT_ABOUT_THE_PROGRAM_CN);
+			strcpy(T.changecolor,TEXT_CHANGE_COLOR_CN);
+			strcpy(T.officialwebsite,TEXT_OFFICIAL_WEBSITE_CN);
+			strcpy(T.email,TEXT_EMAIL_CN);
+			strcpy(T.license,TEXT_LICENSE_CN);
+			strcpy(T.opensourcewebsite,TEXT_OPEN_SOURCE_WEBSITE_CN);
+			strcpy(T.clearscreen,TEXT_CLEAR_SCREEN_CN);
+			strcpy(T.continuethetimer,TEXT_CONTINUE_THE_TIMER_CN);
+			strcpy(T.exit,TEXT_EXIT_CN);
+			
+			strcpy(T.cancel,TEXT_CANCEL_CN);
+			strcpy(T.paused,TEXT_PAUSED_CN);
+			strcpy(T.pressthekey,TEXT_PRESS_THE_KEY_CN);
+			strcpy(T.pressthekeytoenablethefunction,TEXT_PRESS_THE_KEY_TO_ENABLE_THE_FUNCTION_CN); 
+			strcpy(T.timeclear,TEXT_TIME_CLEAR_CN);
+			strcpy(T.thewebsiteaddressis,TEXT_THE_WEBSITE_ADDRESS_IS_CN);
+			strcpy(T.the_official_website_has_been_opened,TEXT_THE_OFFICIAL_WEBSITE_HAS_BEEN_OPENED_CN);
+			strcpy(T.the_email_window_has_been_opened,TEXT_THE_EMAIL_WINDOW_HAS_BEEN_OPENED_CN);
+			strcpy(T.the_open_source_license_website_has_been_opened,TEXT_THE_OPEN_SOURCE_LICENSE_WEBSITE_HAS_BEEN_OPENED_CN);
+			strcpy(T.select_the_website,TEXT_SELECT_THE_WEBSITE_CN);
+			strcpy(T.already_open,TEXT_ALREADY_OPEN_CN);
+			strcpy(T.exiting,TEXT_EXITING_CN);
+			
+			break;
+			
+		case ZH_CN_TR://繁体中文 
+			strcpy(T.AppName,APP_NAME_CN);
+			strcpy(T.Version,TEXT_VERSION_CN);
+			strcpy(T.BuildVersion,TEXT_BUILDVERSION_CN_TR);
+			
+			strcpy(T.Support,APP_SUPPORT_CN);
+			strcpy(T.Copyright,APP_COPYRIGHT_CN_TR);
+			
+			strcpy(T.title,APP_NAME_CN);
+			strcpy(T.title_AppName,APP_NAME_CN);
+			strcat(T.title_AppName," - ");
+			
+			strcpy(T.tip,TEXT_TIP_CN_TR);
+			
+			strcpy(T.year,TEXT_YEAR_CN);
+			strcpy(T.month,TEXT_MONTH_CN);
+			strcpy(T.date,TEXT_DATE_CN);
+			strcpy(T.hour,TEXT_HOUR_CN_TR);
+			strcpy(T.min,TEXT_MIN_CN);
+			strcpy(T.sec,TEXT_SEC_CN);
+			
+			strcpy(T.timer_year,TEXT_TIMER_YEAR_CN);
+			strcpy(T.timer_month,TEXT_TIMER_MONTH_CN);
+			strcpy(T.timer_date,TEXT_TIMER_DATE_CN);
+			strcpy(T.timer_hour,TEXT_TIMER_HOUR_CN_TR);
+			strcpy(T.timer_min,TEXT_TIMER_MIN_CN);
+			strcpy(T.timer_sec,TEXT_TIMER_SEC_CN);
+			
+			strcpy(T.pausepanel,TEXT_PAUSE_PANEL_CN_TR);
+			strcpy(T.pausepanel_line1,TEXT_PAUSE_PANEL_LINE1_CN);
+			strcpy(T.pausepanel_line2,TEXT_PAUSE_PANEL_LINE2_CN);
+			strcpy(T.pausepanel_line3,TEXT_PAUSE_PANEL_LINE3_CN);
+			strcpy(T.timerclear,TEXT_TIMER_CLEAR_CN_TR);
+			strcpy(T.abouttheprogram,TEXT_ABOUT_THE_PROGRAM_CN_TR);
+			strcpy(T.changecolor,TEXT_CHANGE_COLOR_CN_TR);
+			strcpy(T.officialwebsite,TEXT_OFFICIAL_WEBSITE_CN_TR);
+			strcpy(T.email,TEXT_EMAIL_CN_TR);
+			strcpy(T.license,TEXT_LICENSE_CN_TR);
+			strcpy(T.opensourcewebsite,TEXT_OPEN_SOURCE_WEBSITE_CN_TR);
+			strcpy(T.clearscreen,TEXT_CLEAR_SCREEN_CN_TR);
+			strcpy(T.continuethetimer,TEXT_CONTINUE_THE_TIMER_CN_TR);
+			strcpy(T.exit,TEXT_EXIT_CN_TR);
+			
+			strcpy(T.cancel,TEXT_CANCEL_CN);
+			strcpy(T.paused,TEXT_PAUSED_CN_TR);
+			strcpy(T.pressthekey,TEXT_PRESS_THE_KEY_CN_TR);
+			strcpy(T.pressthekeytoenablethefunction,TEXT_PRESS_THE_KEY_TO_ENABLE_THE_FUNCTION_CN_TR); 
+			strcpy(T.timeclear,TEXT_TIME_CLEAR_CN_TR);
+			strcpy(T.thewebsiteaddressis,TEXT_THE_WEBSITE_ADDRESS_IS_CN_TR);
+			strcpy(T.the_official_website_has_been_opened,TEXT_THE_OFFICIAL_WEBSITE_HAS_BEEN_OPENED_CN_TR);
+			strcpy(T.the_email_window_has_been_opened,TEXT_THE_EMAIL_WINDOW_HAS_BEEN_OPENED_CN_TR);
+			strcpy(T.the_open_source_license_website_has_been_opened,TEXT_THE_OPEN_SOURCE_LICENSE_WEBSITE_HAS_BEEN_OPENED_CN_TR);
+			strcpy(T.select_the_website,TEXT_SELECT_THE_WEBSITE_CN_TR);
+			strcpy(T.already_open,TEXT_ALREADY_OPEN_CN_TR);
+			strcpy(T.exiting,TEXT_EXITING_CN);
+			
+			break;
+			
+		default://默认（英文） 
+			strcpy(T.AppName,APP_NAME_L);
+			strcpy(T.Version,TEXT_VERSION);
+			strcpy(T.BuildVersion,TEXT_BUILDVERSION);
+			
+			strcpy(T.Support,APP_SUPPORT);
+			strcpy(T.Copyright,APP_COPYRIGHT);
+					
+			strcpy(T.title,APP_NAME_L);
+			strcpy(T.title_AppName,APP_NAME_L);
+			strcat(T.title_AppName," - ");
+			
+			strcpy(T.tip,TEXT_TIP);
+						
+			strcpy(T.year,TEXT_YEAR);
+			strcpy(T.month,TEXT_MONTH);
+			strcpy(T.date,TEXT_DATE);
+			strcpy(T.hour,TEXT_HOUR);
+			strcpy(T.min,TEXT_MIN);
+			strcpy(T.sec,TEXT_SEC);
+			
+			strcpy(T.timer_year,TEXT_TIMER_YEAR_S);
+			strcpy(T.timer_month,TEXT_TIMER_MONTH_S);
+			strcpy(T.timer_date,TEXT_TIMER_DATE_S);
+			strcpy(T.timer_hour,TEXT_TIMER_HOUR_S);
+			strcpy(T.timer_min,TEXT_TIMER_MIN_S);
+			strcpy(T.timer_sec,TEXT_TIMER_SEC_S);
+			
+			strcpy(T.pausepanel,TEXT_PAUSE_PANEL);
+			strcpy(T.pausepanel_line1,TEXT_PAUSE_PANEL_LINE1);
+			strcpy(T.pausepanel_line2,TEXT_PAUSE_PANEL_LINE2);
+			strcpy(T.pausepanel_line3,TEXT_PAUSE_PANEL_LINE3);
+			strcpy(T.timerclear,TEXT_TIMER_CLEAR);
+			strcpy(T.abouttheprogram,TEXT_ABOUT_THE_PROGRAM);
+			strcpy(T.changecolor,TEXT_CHANGE_COLOR);
+			strcpy(T.officialwebsite,TEXT_OFFICIAL_WEBSITE);
+			strcpy(T.email,TEXT_EMAIL);
+			strcpy(T.license,TEXT_LICENSE);
+			strcpy(T.opensourcewebsite,TEXT_OPEN_SOURCE_WEBSITE);
+			strcpy(T.clearscreen,TEXT_CLEAR_SCREEN);
+			strcpy(T.continuethetimer,TEXT_CONTINUE_THE_TIMER);
+			strcpy(T.exit,TEXT_EXIT);
+			
+			strcpy(T.cancel,TEXT_CANCEL);
+			strcpy(T.paused,TEXT_PAUSED);
+			strcpy(T.pressthekey,TEXT_PRESS_THE_KEY);
+			strcpy(T.pressthekeytoenablethefunction,TEXT_PRESS_THE_KEY_TO_ENABLE_THE_FUNCTION);
+			strcpy(T.timeclear,TEXT_TIME_CLEAR);
+			strcpy(T.thewebsiteaddressis,TEXT_THE_WEBSITE_ADDRESS_IS);
+			strcpy(T.the_official_website_has_been_opened,TEXT_THE_OFFICIAL_WEBSITE_HAS_BEEN_OPENED);
+			strcpy(T.the_email_window_has_been_opened,TEXT_THE_EMAIL_WINDOW_HAS_BEEN_OPENED);
+			strcpy(T.the_open_source_license_website_has_been_opened,TEXT_THE_OPEN_SOURCE_LICENSE_WEBSITE_HAS_BEEN_OPENED);
+			strcpy(T.select_the_website,TEXT_SELECT_THE_WEBSITE);
+			strcpy(T.already_open,TEXT_ALREADY_OPEN);
+			strcpy(T.exiting,TEXT_EXITING);
 	}
+	
 }
 void PRESS_ENTER_TO_CONTINUE(){
 	//功能相似的宏WAIT_PRESS_ENTER_AND_RETURN() 
@@ -503,6 +570,14 @@ void PRESS_ENTER_TO_CONTINUE(){
 		tprint("回车键",30);
 		SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 		tprint("以继续...\n",20);
+		SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	}else if(lang==2){
+		SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+		tprint("按",20);
+		SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+		tprint("回車鍵",30);
+		SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+		tprint("以繼續...\n",20);
 		SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	}else{
 		SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
@@ -535,6 +610,14 @@ void PRESS_SPACE_TO_CONTINUE(){
 		tprint("空格键",30);
 		SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 		tprint("以继续...\n",20);
+		SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	}else if(lang==2){
+		SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+		tprint("按",20);
+		SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+		tprint("空格鍵",30);
+		SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+		tprint("以繼續...\n",20);
 		SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	}else{
 		SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);

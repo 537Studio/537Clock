@@ -62,9 +62,11 @@ Copyright (C) 537 Studio. 2023-2024. All rights reserved.
 
 #define TEXT_HOUR ":"
 #define TEXT_HOUR_CN "时"
+#define TEXT_HOUR_CN_TR "時"
 #define TEXT_TIMER_HOUR_L "Hour"
 #define TEXT_TIMER_HOUR_S "h"
 #define TEXT_TIMER_HOUR_CN "时"
+#define TEXT_TIMER_HOUR_CN_TR "時"
 
 #define TEXT_MIN ":"
 #define TEXT_MIN_CN "分"
@@ -80,6 +82,7 @@ Copyright (C) 537 Studio. 2023-2024. All rights reserved.
 
 #define TEXT_PAUSE_PANEL "Pause Panel"
 #define TEXT_PAUSE_PANEL_CN "暂停面板"
+#define TEXT_PAUSE_PANEL_CN_TR "暫停面板"
 
 #define TEXT_PAUSE_PANEL_LINE1 "------------"
 #define TEXT_PAUSE_PANEL_LINE1_CN "------------"
@@ -90,66 +93,86 @@ Copyright (C) 537 Studio. 2023-2024. All rights reserved.
 
 #define TEXT_TIMER_CLEAR "Timer Clear"
 #define TEXT_TIMER_CLEAR_CN "计时清零"
+#define TEXT_TIMER_CLEAR_CN_TR "計時清零"
 
 #define TEXT_ABOUT_THE_PROGRAM "About The Program"
 #define TEXT_ABOUT_THE_PROGRAM_CN "关于程序"
+#define TEXT_ABOUT_THE_PROGRAM_CN_TR "關於程式"
 
 #define TEXT_CHANGE_COLOR "Change Color"
 #define TEXT_CHANGE_COLOR_CN "更改颜色"
+#define TEXT_CHANGE_COLOR_CN_TR "更改顏色"
 
 #define TEXT_OFFICIAL_WEBSITE "Official Website"
 #define TEXT_OFFICIAL_WEBSITE_CN "官方网站"
+#define TEXT_OFFICIAL_WEBSITE_CN_TR "官方網站"
 
 #define TEXT_EMAIL "E-mail"
 #define TEXT_EMAIL_CN "电子邮件"
+#define TEXT_EMAIL_CN_TR "電子郵件"
 
 #define TEXT_LICENSE "License"
 #define TEXT_LICENSE_CN "使用许可"
+#define TEXT_LICENSE_CN_TR "使用許可"
 
 #define TEXT_OPEN_SOURCE_WEBSITE "Open Source Website"
 #define TEXT_OPEN_SOURCE_WEBSITE_CN "开源网站"
+#define TEXT_OPEN_SOURCE_WEBSITE_CN_TR "開源網站"
 
 #define TEXT_CLEAR_SCREEN "Clear Screen"
 #define TEXT_CLEAR_SCREEN_CN "清空屏幕"
+#define TEXT_CLEAR_SCREEN_CN_TR "清空螢幕"
 
 #define TEXT_CONTINUE_THE_TIMER "Continue the Timer"
 #define TEXT_CONTINUE_THE_TIMER_CN "继续计时"
+#define TEXT_CONTINUE_THE_TIMER_CN_TR "繼續計時"
 
 #define TEXT_EXIT "Exit"
 #define TEXT_EXIT_CN "退出程序"
+#define TEXT_EXIT_CN_TR "退出程式"
 
 #define TEXT_CANCEL "Cancel"
 #define TEXT_CANCEL_CN "取消"
 
 #define TEXT_PAUSED "Paused"
 #define TEXT_PAUSED_CN "已暂停"
+#define TEXT_PAUSED_CN_TR "已暫停"
 
 #define TEXT_PRESS_THE_KEY "Press the key"
 #define TEXT_PRESS_THE_KEY_CN "按下按键"
+#define TEXT_PRESS_THE_KEY_CN_TR "按下按鍵"
 
 #define TEXT_PRESS_THE_KEY_TO_ENABLE_THE_FUNCTION "Press the key to enable the function"
 #define TEXT_PRESS_THE_KEY_TO_ENABLE_THE_FUNCTION_CN "按下按键以启用功能"
+#define TEXT_PRESS_THE_KEY_TO_ENABLE_THE_FUNCTION_CN_TR "按下按鍵以啟用功能"
 
 #define TEXT_TIME_CLEAR "Time has been cleared. "
 #define TEXT_TIME_CLEAR_CN "时间已清零，"
+#define TEXT_TIME_CLEAR_CN_TR "時間已清零，"
 
 #define TEXT_THE_WEBSITE_ADDRESS_IS "The website address: "
 #define TEXT_THE_WEBSITE_ADDRESS_IS_CN "网站地址: "
+#define TEXT_THE_WEBSITE_ADDRESS_IS_CN_TR "網站位址: "
 
 #define TEXT_THE_OFFICIAL_WEBSITE_HAS_BEEN_OPENED "The official website has been opened. "
 #define TEXT_THE_OFFICIAL_WEBSITE_HAS_BEEN_OPENED_CN "已打开官方网站，"
+#define TEXT_THE_OFFICIAL_WEBSITE_HAS_BEEN_OPENED_CN_TR "已打開官方網站，"
 
 #define TEXT_THE_EMAIL_WINDOW_HAS_BEEN_OPENED "The email window has been opened. "
 #define TEXT_THE_EMAIL_WINDOW_HAS_BEEN_OPENED_CN "已打开邮件窗口，"
+#define TEXT_THE_EMAIL_WINDOW_HAS_BEEN_OPENED_CN_TR "已打開郵件視窗，"
 
 #define TEXT_THE_OPEN_SOURCE_LICENSE_WEBSITE_HAS_BEEN_OPENED "The open source license website has been opened. " 
 #define TEXT_THE_OPEN_SOURCE_LICENSE_WEBSITE_HAS_BEEN_OPENED_CN "已打开开源协议网站，" 
+#define TEXT_THE_OPEN_SOURCE_LICENSE_WEBSITE_HAS_BEEN_OPENED_CN_TR "已打開開源協議網站，" 
 
 #define TEXT_SELECT_THE_WEBSITE "Please select the site you want to visit"
 #define TEXT_SELECT_THE_WEBSITE_CN "请选择要访问的站点"
+#define TEXT_SELECT_THE_WEBSITE_CN_TR "請選擇要訪問的網站"
 
 #define TEXT_ALREADY_OPEN "Already open "
 #define TEXT_ALREADY_OPEN_CN "已打开 "
+#define TEXT_ALREADY_OPEN_CN_TR "已打開 "
 
 #define TEXT_EXITING "Exiting..."
 #define TEXT_EXITING_CN "正在退出..."

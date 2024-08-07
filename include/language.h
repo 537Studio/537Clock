@@ -6,7 +6,9 @@ include/language.h
 
 Copyright (C) 537 Studio. 2023-2024. All rights reserved.
 */ 
-  
+
+//下为系统语言参数 
+
 // 英语变体  
 #define LANG_EN_US 0x0409 // 英语（美国）  
 #define LANG_EN_GB 0x0809 // 英语（英国）  
@@ -47,23 +49,29 @@ Copyright (C) 537 Studio. 2023-2024. All rights reserved.
 #define LANG_KO_KR 0x0412 // 韩语（韩国）  
 
 #include <windows.h>
-int lang=0;
+int lang=0;//默认为英文模式 
 void getlanguage(){
 	LANGID langID = GetUserDefaultUILanguage();
 	switch(langID){
-		case LANG_ZH_CN:
+		case LANG_ZH_CN://简体中文 
 			lang=1;
 			break;
-		case LANG_ZH_TW:
-			lang=1;
+		case LANG_ZH_TW://繁体中文 
+			lang=2;
 			break;
 		case LANG_ZH_HK:
-			lang=1;
+			lang=2;
 			break;
 		case LANG_ZH_MO:
-			lang=1;
+			lang=2;
 			break;
-		default:
+		default://英文 
 			break;
 	}
 } 
+
+//下为软件内语言定义 
+
+#define EN_US 0
+#define ZH_CN 1
+#define ZH_CN_TR 2

@@ -33,9 +33,13 @@ int main(int argc, char* argv[]){
 			return 0;
     	}
 		if(string(argv[1])=="/lan" || string(argv[1])=="/lang"){
-    		if(string(argv[2])=="cn" || string(argv[2])=="chinese" || string(argv[2])=="Chinese" || string(argv[2])=="zh-CN" || string(argv[2])=="zh-TW" || string(argv[2])=="zh-HK" || string(argv[2])=="zh-MO"){
+    		if(string(argv[2])=="cn" || string(argv[2])=="CN" || string(argv[2])=="simplified-cn" || string(argv[2])=="simplified-CN" || string(argv[2])=="sim-cn" || string(argv[2])=="sim-CN" || string(argv[2])=="chinese" || string(argv[2])=="simplified-chinese" || string(argv[2])=="Simplified-chinese" || string(argv[2])=="Chinese" || string(argv[2])=="Simplified-Chinese" || string(argv[2])=="simplified-Chinese" || string(argv[2])=="Sim-Chinese" || string(argv[2])=="sim-Chinese" || string(argv[2])=="PRC" || string(argv[2])=="People\'s-Republic-of-China" || string(argv[2])=="China" || string(argv[2])=="Chinese-Mainland" || string(argv[2])=="Chinese-mainland" || string(argv[2])=="China-Mainland" || string(argv[2])=="China-mainland" || string(argv[2])=="zh-CN"){
     			tprint("在简体中文模式下运行\n");
     			lang=1;
+    			setlanguage(lang);
+			}else if(string(argv[2])=="traditional-cn" || string(argv[2])=="Traditional-cn" || string(argv[2])=="traditional-CN" || string(argv[2])=="Traditional-CN" || string(argv[2])=="tra-cn" || string(argv[2])=="tra-CN" || string(argv[2])=="tr-cn" || string(argv[2])=="tr-CN" || string(argv[2])=="traditional-chinese" || string(argv[2])=="Traditional-Chinese" || string(argv[2])=="Hong-Kong" || string(argv[2])=="hong-kong" || string(argv[2])=="HK" || string(argv[2])=="hk" || string(argv[2])=="Taiwan" || string(argv[2])=="taiwan" || string(argv[2])=="TW" || string(argv[2])=="tw" || string(argv[2])=="Macao" || string(argv[2])=="Macau" || string(argv[2])=="MO" || string(argv[2])=="mo" || string(argv[2])=="zh-CN-TR" || string(argv[2])=="zh-TW" || string(argv[2])=="zh-HK" || string(argv[2])=="zh-MO"){
+    			tprint("在繁體中文模式下啟動\n");
+    			lang=2;
     			setlanguage(lang);
 			}else if(string(argv[2])=="en" || string(argv[2])=="english" || string(argv[2])=="English" || string(argv[2])=="en-US" || string(argv[2])=="en-GB" || string(argv[2])=="en-AU" || string(argv[2])=="en-CA" || string(argv[2])=="en-NZ" || string(argv[2])=="en-IE" || string(argv[2])=="en-ZA" || string(argv[2])=="en-JM" || string(argv[2])=="en-TT" || string(argv[2])=="en-PH" || string(argv[2])=="en-IN" || string(argv[2])=="en-MY" || string(argv[2])=="en-SG"){
 				tprint("Run in the English mode\n");
