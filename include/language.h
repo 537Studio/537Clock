@@ -1,3 +1,12 @@
+/*
+537Clock
+Version 1.3 Beta
+
+include/language.h
+
+Copyright (C) 537 Studio. 2023-2024. All rights reserved.
+*/
+
 // 语言宏定义  
   
 // 英语变体  

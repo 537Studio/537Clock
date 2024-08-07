@@ -1,3 +1,11 @@
+/*
+537Clock
+Version 1.3 Beta
+
+include/about.h
+
+Copyright (C) 537 Studio. 2023-2024. All rights reserved.
+*/
 #define APP_NAME_L "537 Clock"
 #define APP_NAME_S "537Clock"
 #define APP_NAME_CN "537√Î±Ì"

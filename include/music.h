@@ -1,3 +1,13 @@
+/*
+537Clock
+Version 1.3 Beta
+
+include/music.h
+
+Copyright (C) 537 Studio. 2023-2024. All rights reserved.
+From: crystal203.github.io
+*/
+
 //–Ë¡¥Ω”-lwinnm
 
 /*

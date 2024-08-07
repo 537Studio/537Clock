@@ -1,3 +1,11 @@
+/*
+537Clock
+Version 1.3 Beta
+
+include/text.h
+
+Copyright (C) 537 Studio. 2023-2024. All rights reserved.
+*/
 #include <iostream> 
 #include <string>
 #include <ctime>
