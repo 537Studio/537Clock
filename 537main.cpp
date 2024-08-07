@@ -9,19 +9,6 @@ Copyright (C) 537 Studio. 2023-2024. All rights reserved.
 #include "include/text.h"
 #include "include/about.h"
 
-void menu(); 
-void logo();
-void about(); 
-void color();
-void PRESS_ENTER_TO_CONTINUE();
-void PRESS_SPACE_TO_CONTINUE();
-//慎用，由于537Clock1.1版本后按键灵敏度提高，注意不要和下一步操作按键重合 
-//否则用户若未及时抬起按键，将会再次触发暂停菜单 
-//建议在额外功能中使用PRESS_ENTER_TO_CONTINUE()函数
-void cls();
-void gotoxy(int x, int y);
-void SetConsoleColor(WORD color);
-
 int main(int argc, char* argv[]){
 	getlanguage();
 	
@@ -152,7 +139,7 @@ int main(int argc, char* argv[]){
     			SetConsoleTitle(TEXT(T.title));
     			control();
 		}
-		Sleep(20);
+		tsleep(20);
 	}
 	
     return 0;

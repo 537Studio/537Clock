@@ -10,6 +10,7 @@ Copyright (C) 537 Studio. 2023-2024. All rights reserved.
 #include <string>
 #include <ctime>
 #include <chrono>  
+#include <thread> 
 #include <map>
 #include <windows.h>
 #include <winapifamily.h>
@@ -27,19 +28,35 @@ Copyright (C) 537 Studio. 2023-2024. All rights reserved.
 								menu();     \
 								return;   \
 							}	\
-							Sleep(25);  \
+							tsleep(25);  \
 						}
 #define WAIT_PRESS_ENTER_AND_RETURN() for(;;){   \
 							if(KEY(' ')){   \
 								menu();     \
 								return;   \
 							}	\
-							Sleep(25);  \
+							tsleep(25);  \
 						}
 using namespace std;
 SHSTDAPI_(HINSTANCE) ShellExecuteA (HWND hwnd, LPCSTR lpOperation, LPCSTR lpFile, LPCSTR lpParameters, LPCSTR lpDirectory, INT nShowCmd); 
 long long timer;
 long long last_unixtime;
+
+void menu(); 
+void logo();
+void about(); 
+void color();
+void waitpress();
+void PRESS_ENTER_TO_CONTINUE();
+void PRESS_SPACE_TO_CONTINUE();
+//慎用，由于537Clock1.1版本后按键灵敏度提高，注意不要和下一步操作按键重合 
+//否则用户若未及时抬起按键，将会再次触发暂停菜单 
+//建议在额外功能中使用PRESS_ENTER_TO_CONTINUE()函数
+void cls();
+void tsleep(int milliseconds);
+void gotoxy(int x, int y);
+void SetConsoleColor(WORD color);
+
 struct Text{
 	char AppName[MAX_PATH]={};
 	char Version[MAX_PATH]={};
@@ -116,25 +133,11 @@ struct StartTimeInfo{
 	long long unixtime;
 }starttime;
 template<typename T>
-void tprint(T content,int sleep=0,int times=1){  
+void tprint(T content,int SleepTime=0,int times=1){  
 	for(int i=0;i<times;i++)
 		cout<<content; //此函数作用是：在输出times个content后，
-	Sleep(sleep);        //再去等待sleep秒
+	tsleep(SleepTime);        //再去等待SleepTime毫秒 
 }
-
-void menu(); 
-void logo();
-void about(); 
-void color();
-void waitpress();
-void PRESS_ENTER_TO_CONTINUE();
-void PRESS_SPACE_TO_CONTINUE();
-//慎用，由于537Clock1.1版本后按键灵敏度提高，注意不要和下一步操作按键重合 
-//否则用户若未及时抬起按键，将会再次触发暂停菜单 
-//建议在额外功能中使用PRESS_ENTER_TO_CONTINUE()函数
-void cls();
-void gotoxy(int x, int y);
-void SetConsoleColor(WORD color);
 
 void control(){
 	MusicPlayer bgm;
@@ -340,7 +343,7 @@ void control(){
         			menu();
 					return;
 				}
-    			Sleep(25);
+    			tsleep(25);
 			}
 		}else if(KEY('S')){
 			tprint(T.clearscreen,20);
@@ -363,7 +366,7 @@ void control(){
 			system("color F"); 
 			exit(0);
 		}
-		Sleep(15);
+		tsleep(15);
 	}
 } 
 void menu(){
@@ -515,7 +518,7 @@ void PRESS_ENTER_TO_CONTINUE(){
            	menu();
 			return;
        	}	
-    	Sleep(25);
+    	tsleep(25);
 	}
 }
 void PRESS_SPACE_TO_CONTINUE(){
@@ -547,7 +550,7 @@ void PRESS_SPACE_TO_CONTINUE(){
            	menu();
 			return;
        	}	
-    	Sleep(25);
+    	tsleep(25);
 	}
 }
 void logo(){
@@ -630,7 +633,7 @@ void waitpress(){
 } 
 void color(){
 	//已停用 
-	Sleep(50);
+	tsleep(50);
 	
 	map<char, string> color_list{     //这个是颜色表
 		{'1', "蓝色  "}, {'2', "绿色  "}, {'3', "浅绿色"},
@@ -666,16 +669,19 @@ void color(){
 				return;
 			}
 		} 
-		Sleep(10);
+		tsleep(10);
 	}
 }
 void cls(){
 	for(int i=0;i<50;i++){
 		cout<<"\n";
-		Sleep(40);
+		tsleep(40);
 	}
 	system("cls");
 }
+void tsleep(int milliseconds){  
+    std::this_thread::sleep_for(std::chrono::milliseconds(milliseconds));  
+}  
 void gotoxy(int x, int y){
 	COORD coord;
 	coord.X = x;
