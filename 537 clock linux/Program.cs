@@ -10,7 +10,7 @@ class Program
         int windowWidth = Console.WindowWidth;
 
         Console.WriteLine("欢迎使用537 Studio 开发的537秒表(基于C# .NET) Linux 特供版");
-        Console.WriteLine("当前窗口的高度是：" + windowHeight + "宽度是：" + windowWidth);
+        Console.WriteLine("当前窗口的高度是：" + windowHeight + "。宽度是：" + windowWidth);
         Console.WriteLine("开发者：Yilihamujiang365@outlook.com");
         Console.WriteLine();
         Console.WriteLine("Copyright © 537 studio .2023-2024  All Rights Reserved");
@@ -26,7 +26,7 @@ class Program
         Console.WriteLine("s 清空屏幕");
         Console.WriteLine("q 退出软件");
 
-        string userinput = Console.ReadLine() ?? string.Empty;
+        string userinput = Console.ReadKey().KeyChar.ToString() ?? string.Empty;
 
 
 
