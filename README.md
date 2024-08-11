@@ -1,12 +1,12 @@
-# 537Clock
+# 537 Clock
 
-[简体中文](./README.md) / [English](./README.en.md)
+[简体中文](./README.md) / [繁體中文](./README.tra-cn.md) / [English](./README.en.md)
 
 ### 介绍
 
 537秒表（537Clock）是537工作室开发的一款Windows控制台应用程序，为命令行界面，有年月日时分秒显示、Unix时间戳显示、计时/清零、调色等功能。发布于2023年12月31日。
 
-最新正式版本：1.2（便携式：x64 & x86）
+最新正式版本：1.3（便携式：x64 & x86）
 
 视频介绍（1.0测试版本）：https://www.bilibili.com/video/BV1Y2421M7yk
 
@@ -97,9 +97,9 @@
 
 > C++11
 
-##### **编译器额外链接指令**
+##### **编译器指令**
 
-> -lwinmm
+```g++ 537main.cpp -o 537Clock.exe -std=c++11 -lwinmm```
 
 #### 如何参与开发？
 
