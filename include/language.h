@@ -1,6 +1,6 @@
 /*
 537Clock
-Version 1.3 Beta
+Version 1.3
 
 include/language.h
 
