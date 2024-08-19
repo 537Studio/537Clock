@@ -1,6 +1,6 @@
 /*
 537Clock
-Version 1.3
+Version 1.4 Beta
 
 537main.cpp
 
@@ -115,10 +115,10 @@ int main(int argc, char* argv[]){
     		
 			tprint(nowtime.sec,20);
     		tprint(T.sec,20);
-    		tprint("\t",20);
+    		tprint("\t",40);
 			
 			SetConsoleColor(FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-			tprint(nowtime.unixtime,30);
+			tprint(nowtime.unixtime,50);
 			
 			tprint("\t");
 			

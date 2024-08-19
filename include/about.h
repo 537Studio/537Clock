@@ -1,6 +1,6 @@
 /*
 537Clock
-Version 1.3
+Version 1.4 Beta
 
 include/about.h
 
@@ -10,8 +10,8 @@ Copyright (C) 537 Studio. 2023-2024. All rights reserved.
 #define APP_NAME_S "537Clock"
 #define APP_NAME_CN "537秒表"
 
-#define APP_VERSION "1.3" 
-#define APP_BUILDVERSION "2024.8.11.0"
+#define APP_VERSION "1.4 Beta" 
+#define APP_BUILDVERSION "2024.8.19.0"
 
 #define APP_IDEA "Less is more"
 #define APP_IDEA_CN "少即是多"
