@@ -1,3 +1,11 @@
+/*
+537 Clock
+Version 2.0 Beta
+
+console.cpp
+
+Copyright (C) 537 Studio. 2023-2024. All rights reserved.
+*/
 #include "include/console.h"
 
 void SetConsoleColor(WORD color){  

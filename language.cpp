@@ -1,3 +1,11 @@
+/*
+537 Clock
+Version 2.0 Beta
+
+language.cpp
+
+Copyright (C) 537 Studio. 2023-2024. All rights reserved.
+*/
 #include "include/language.h"
 #include "include/tclass.h"
 LANGID langID=0;

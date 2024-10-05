@@ -1,3 +1,11 @@
+/*
+537 Clock
+Version 2.0 Beta
+
+tclass.cpp
+
+Copyright (C) 537 Studio. 2023-2024. All rights reserved.
+*/
 #include "include/tclass.h"
 #include <thread>
 #include <chrono>

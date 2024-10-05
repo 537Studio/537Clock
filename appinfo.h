@@ -1,3 +1,11 @@
+/*
+537 Clock
+Version 2.0 Beta
+
+appinfo.h
+
+Copyright (C) 537 Studio. 2023-2024. All rights reserved.
+*/
 #ifndef _FTSCLOCK_APPINFO_H_
 #define _FTSCLOCK_APPINFO_H_
 
