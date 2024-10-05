@@ -1,13 +1,5 @@
-/*
-537Clock
-Version 1.4 Beta
-
-include/language.h
-
-Copyright (C) 537 Studio. 2023-2024. All rights reserved.
-*/ 
-
-//下为系统语言参数 
+#ifndef _FTSCLOCK_LANGUAGE_H_
+#define _FTSCLOCK_LANGUAGE_H_
 
 // 英语变体  
 #define LANG_EN_US 0x0409 // 英语（美国）  
@@ -49,29 +41,10 @@ Copyright (C) 537 Studio. 2023-2024. All rights reserved.
 #define LANG_KO_KR 0x0412 // 韩语（韩国）  
 
 #include <windows.h>
-int lang=0;//默认为英文模式 
-void getlanguage(){
-	LANGID langID = GetUserDefaultUILanguage();
-	switch(langID){
-		case LANG_ZH_CN://简体中文 
-			lang=1;
-			break;
-		case LANG_ZH_TW://繁体中文 
-			lang=2;
-			break;
-		case LANG_ZH_HK:
-			lang=2;
-			break;
-		case LANG_ZH_MO:
-			lang=2;
-			break;
-		default://英文 
-			break;
-	}
-} 
+extern LANGID langID;
 
-//下为软件内语言定义 
+void getlanguage();
+void setlanguage();
 
-#define EN_US 0
-#define ZH_CN 1
-#define ZH_CN_TR 2
+
+#endif
