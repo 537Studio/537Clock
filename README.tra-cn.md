@@ -10,7 +10,7 @@
 
 視頻介紹（1.0測試版本）：https://www.bilibili.com/video/BV1Y2421M7yk
 
-! [537秒表] (537Clock_Introduction.PNG)
+! [537秒表] (./resource/537Clock_Introduction.PNG)
 
 ### 理念：少即是多（_Less is more_）
 

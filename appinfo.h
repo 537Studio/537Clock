@@ -11,16 +11,16 @@ Copyright (C) 537 Studio. 2023-2024. All rights reserved.
 
 #define APP_NAME_EN_L "537 Clock"
 #define APP_NAME_EN_S "537Clock"
-#define APP_NAME_CN "537Ãë±í"
+#define APP_NAME_CN "537ç§’è¡¨"
 
 #define APP_VERSION "2.0 Beta" 
 #define APP_BUILDVERSION "F.2024.10.05.22.37.W11"
 
 #define APP_IDEA_EN "Less is more"
-#define APP_IDEA_CN "ÉÙ¼´ÊÇ¶à"
+#define APP_IDEA_CN "å°‘å³æ˜¯å¤š"
 
 #define APP_DEVELOPER_EN "537 Studio"
-#define APP_DEVELOPER_CN "537¹¤×÷ÊÒ"
+#define APP_DEVELOPER_CN "537å·¥ä½œå®¤"
 #define APP_DEVELOPER_SHORTHAND "537"
 #define APP_DEVELOPER_LOGO_LNUM 5
 #define APP_DEVELOPER_LOGO_L1 "=== === ===    /==\\  ||          | =\n"
@@ -34,12 +34,12 @@ Copyright (C) 537 Studio. 2023-2024. All rights reserved.
 #define APP_EMAIL "hello@537studio.com"
 
 #define APP_SUPPORT_EN "Powered by 537 Studio"
-#define APP_SUPPORT_CN "ÓÉ 537¹¤×÷ÊÒ Ìá¹©Ö§³Ö"
-#define APP_SUPPORT_TRCN "ÓÉ 537¹¤×÷ÊÒ Ìá¹©Ö§Ô®"
+#define APP_SUPPORT_CN "ç”± 537å·¥ä½œå®¤ æä¾›æ”¯æŒ"
+#define APP_SUPPORT_TRCN "ç”± 537å·¥ä½œå®¤ æä¾›æ”¯æ´"
 
 #define APP_COPYRIGHT_EN "Copyright (C) 537 Studio. 2023-2024. All rights reserved."
-#define APP_COPYRIGHT_CN "°æÈ¨ËùÓĞ (C) 537¹¤×÷ÊÒ. 2023-2024. ±£ÁôËùÓĞÈ¨Àû."
-#define APP_COPYRIGHT_TRCN "°æ™àËùÓĞ (C) 537¹¤×÷ÊÒ. 2023-2024. ±£ÁôËùÓĞ™àÀû."
+#define APP_COPYRIGHT_CN "ç‰ˆæƒæ‰€æœ‰ (C) 537å·¥ä½œå®¤. 2023-2024. ä¿ç•™æ‰€æœ‰æƒåˆ©."
+#define APP_COPYRIGHT_TRCN "ç‰ˆæ¬Šæ‰€æœ‰ (C) 537å·¥ä½œå®¤. 2023-2024. ä¿ç•™æ‰€æœ‰æ¬Šåˆ©."
 
 #define APP_OPENSOUCE_ADDRESS_LISENCE "https://www.gnu.org/licenses/lgpl-3.0-standalone.html"
 #define APP_OPENSOURCE_ADDRESS_GITEE "https://gitee.com/FTS-537Studio/537Clock"
@@ -53,15 +53,15 @@ Copyright (C) 537 Studio. 2023-2024. All rights reserved.
 #define APP_LOGO_L5 "# #     # #\t"
 
 #define TEXT_VERSION_EN "Version"
-#define TEXT_VERSION_CN "°æ±¾"
+#define TEXT_VERSION_CN "ç‰ˆæœ¬"
 
 #define TEXT_BUILDVERSION_EN "Build Version"
-#define TEXT_BUILDVERSION_CN "¹¹½¨°æ±¾"
-#define TEXT_BUILDVERSION_TRCN "˜‹½¨°æ±¾"
+#define TEXT_BUILDVERSION_CN "æ„å»ºç‰ˆæœ¬"
+#define TEXT_BUILDVERSION_TRCN "æ§‹å»ºç‰ˆæœ¬"
 
 #define TEXT_TIP_EN "Call for a truce between Russia and Ukraine! Stop this senseless war!"
-#define TEXT_TIP_CN "ºôÓõ¶íÎÚÁ½¹úÍ£Õ½£¡Í£Ö¹Õâ³¡ÎŞÒâÒåµÄÕ½Õù£¡" 
-#define TEXT_TIP_TRCN "ºô»n¶íõƒÉ‡øÍ£‘ğ£¡ Í£Ö¹ß@ˆöŸoÒâÁxµÄ‘ğ £¡" 
+#define TEXT_TIP_CN "å‘¼åä¿„ä¹Œä¸¤å›½åœæˆ˜ï¼åœæ­¢è¿™åœºæ— æ„ä¹‰çš„æˆ˜äº‰ï¼" 
+#define TEXT_TIP_TRCN "å‘¼ç±²ä¿„çƒå…©åœ‹åœæˆ°ï¼ åœæ­¢é€™å ´ç„¡æ„ç¾©çš„æˆ°çˆ­ï¼" 
 
 
 #endif

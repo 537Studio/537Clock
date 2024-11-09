@@ -17,23 +17,23 @@ class Gif
 private:
 	int x, y;
 	int width, height;
-	int frameCount;					//Ö¡Êı
+	int frameCount;					//å¸§æ•°
 
-	HDC hdc;						//Éè±¸¾ä±ú
-	Gdiplus::Graphics* graphics;	//Í¼ĞÎ¶ÔÏó
+	HDC hdc;						//è®¾å¤‡å¥æŸ„
+	Gdiplus::Graphics* graphics;	//å›¾å½¢å¯¹è±¡
 
-	Gdiplus::Bitmap* gifImage;		//gifÍ¼Ïñ
-	Gdiplus::PropertyItem* pItem;	//Ö¡ÑÓÊ±Êı¾İ
+	Gdiplus::Bitmap* gifImage;		//gifå›¾åƒ
+	Gdiplus::PropertyItem* pItem;	//å¸§å»¶æ—¶æ•°æ®
 
-	int curFrame;					//µ±Ç°Ö¡
-	clock_t pauseTime;				//ÔİÍ£Ê±¼ä
+	int curFrame;					//å½“å‰å¸§
+	clock_t pauseTime;				//æš‚åœæ—¶é—´
 
-	clock_t	frameBaseTime;			//Ö¡»ù×¼Ê±¼ä
-	clock_t	curDelayTime;			//µ±Ç°Ö¡µÄÒÑ²¥·ÅÊ±¼ä
-	clock_t	frameDelayTime;			//µ±Ç°Ö¡µÄ×ÜÑÓÊ±Ê±¼ä
+	clock_t	frameBaseTime;			//å¸§åŸºå‡†æ—¶é—´
+	clock_t	curDelayTime;			//å½“å‰å¸§çš„å·²æ’­æ”¾æ—¶é—´
+	clock_t	frameDelayTime;			//å½“å‰å¸§çš„æ€»å»¶æ—¶æ—¶é—´
 
-	bool playing;					//ÊÇ·ñ²¥·Å
-	bool visible;					//ÊÇ·ñ¿É¼û
+	bool playing;					//æ˜¯å¦æ’­æ”¾
+	bool visible;					//æ˜¯å¦å¯è§
 
 public:
 	Gif(const WCHAR* gifFileName = NULL, HDC hdc = getHDC(NULL));
@@ -43,53 +43,53 @@ public:
 
 	Gif& operator=(const Gif& gif);
 
-	//¼ÓÔØÍ¼Ïñ
+	//åŠ è½½å›¾åƒ
 	void load(const WCHAR* gifFileName);
 
-	//°ó¶¨Éè±¸
+	//ç»‘å®šè®¾å¤‡
 	void bind(HDC hdc);
 	void bindWindow();
 
-	//Çå¿Õ¼ÓÔØÍ¼Ïñ
+	//æ¸…ç©ºåŠ è½½å›¾åƒ
 	void clear();
 
-	//Î»ÖÃ
+	//ä½ç½®
 	void setPos(int x, int y);
 	void setSize(int width, int height);
 
 	int getX() const { return x; }
 	int getY() const { return y; }
 
-	//Í¼Ïñ´óĞ¡
+	//å›¾åƒå¤§å°
 	int getWidth() const { return width; }
 	int getHeight() const { return height; }
 
-	//Ô­Í¼´óĞ¡
+	//åŸå›¾å¤§å°
 	int getOrginWidth() const;
 	int getOrginHeight() const;
 
-	//Ö¡ĞÅÏ¢
+	//å¸§ä¿¡æ¯
 	int getFrameCount() const { return frameCount; }
 	int getCurFrame() const { return curFrame; }
 
-	//ÑÓÊ±Ê±¼ä»ñÈ¡£¬ÉèÖÃ
+	//å»¶æ—¶æ—¶é—´è·å–ï¼Œè®¾ç½®
 	int getDelayTime(int frame) const;
 	void setDelayTime(int frame, long time_ms);
 	void setAllDelayTime(long time_ms);
 	
-	//¸üĞÂÊ±¼ä£¬¼ÆËãµ±Ç°Ö¡
+	//æ›´æ–°æ—¶é—´ï¼Œè®¡ç®—å½“å‰å¸§
 	void updateTime();
 	
-	//»æÖÆµ±Ç°Ö¡»òÖ¸¶¨Ö¡
+	//ç»˜åˆ¶å½“å‰å¸§æˆ–æŒ‡å®šå¸§
 	void draw();
 	void draw(int x, int y);
 	void drawFrame(int frame);
 	void drawFrame(int frame, int x, int y);
 
-	//»ñÈ¡Í¼Ïñ
+	//è·å–å›¾åƒ
 	void getimage(PIMAGE pimg, int frame);
 
-	//²¥·Å×´Ì¬¿ØÖÆ
+	//æ’­æ”¾çŠ¶æ€æ§åˆ¶
 	void play();
 	void pause();
 	void toggle();
@@ -101,14 +101,14 @@ public:
 
 	bool isAnimation() const { return frameCount > 1; }
 
-	//ÖØÖÃ²¥·Å×´Ì¬
+	//é‡ç½®æ’­æ”¾çŠ¶æ€
 	void resetPlayState();
 
 	void info() const;
 	
 private:
-	void init();	//³õÊ¼»¯
-	void read();	//¶ÁÈ¡Í¼ÏñĞÅÏ¢
+	void init();	//åˆå§‹åŒ–
+	void read();	//è¯»å–å›¾åƒä¿¡æ¯
 	void copy(const Gif& gif);
 };
 

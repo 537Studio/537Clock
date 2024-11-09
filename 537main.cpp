@@ -18,9 +18,9 @@ int main(int argc, char* argv[]){
 	getlanguage();
 	setlanguage();
 	
-	if(argc>1){	//´ø²ÎÊıÆô¶¯£¬µÈÓÚ 1 Ê±ÊÇÖ±½ÓÆô¶¯ 
-		std::string pm[argc];//´æ´¢ string ÀàĞÍ²ÎÊıµÄÊı×é 
-		for(int i=0; i<argc; i++) pm[i]=std::string(argv[i]);	//´æ´¢²ÎÊı 
+	if(argc>1){	//å¸¦å‚æ•°å¯åŠ¨ï¼Œç­‰äº 1 æ—¶æ˜¯ç›´æ¥å¯åŠ¨ 
+		std::string pm[argc];//å­˜å‚¨ string ç±»å‹å‚æ•°çš„æ•°ç»„ 
+		for(int i=0; i<argc; i++) pm[i]=std::string(argv[i]);	//å­˜å‚¨å‚æ•° 
 		if(pm[1]=="-v" || pm[1]=="--version") aboutThisApp();
 	} 
 	aboutThisApp();

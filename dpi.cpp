@@ -16,10 +16,10 @@ void GetDPI(){
 	RECT rect;
 	GetClientRect(hd,&rect);
 	int cw1=(rect.right-rect.left),cw2=GetDeviceCaps(hdc,DESKTOPHORZRES);
-	//cw2��ȡ��ʾ��ʵ�ʷֱ��ʣ�cw1��ȡ���ź�ķֱ���
-	//��4K 150%�����£�ʵ�ʷֱ���Ϊ3840x2160�����ź�ķֱ���Ϊ2560x1440
+	//cw2获取显示器实际分辨率，cw1获取缩放后的分辨率
+	//如4K 150%缩放下，实际分辨率为3840x2160，缩放后的分辨率为2560x1440
     dpi=1.0*cw2/cw1;
-	//��ʱ��ȡ��dpiֵΪ1.5
+	//此时获取的dpi值为1.5
 	std::cout<<dpi<<std::endl;
 }
 void EnableHighDPI(){

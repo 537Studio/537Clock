@@ -15,19 +15,19 @@ void getlanguage(){
 void setlanguage(){
 	switch(langID){
 		case LANG_ZH_CN:
-			//tprint("中国大陆");
+			//tprint("涓浗澶ч檰");
 			break;
 		case LANG_ZH_HK:
-			//tprint("中国香港");
+			//tprint("涓浗棣欐腐");
 			break;
 		case LANG_ZH_MO:
-			//tprint("中国澳门");
+			//tprint("涓浗婢抽棬");
 			break;
 		case LANG_ZH_TW:	
-			//tprint("中国台湾");
+			//tprint("涓浗鍙版咕");
 			break;
 		case LANG_EN_US:
-			//tprint("美国");
+			//tprint("缇庡浗");
 			break;
 		default:
 			break;
