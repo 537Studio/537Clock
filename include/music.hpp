@@ -82,7 +82,7 @@ From: crystal203.github.io
 
 + `void setVolume(int _vol)` 设置音量（`0x00` 至 `0x7f`）
 + `void setDelay(int _dctn)` 设置四分音符延时（毫秒）
-+ `void play(string s)` 播放**简谱格式**的一行音符
++ `void play(wstring s)` 播放**简谱格式**的一行音符
 + `void playList(MusicList &m)` 播放歌曲
 
 #### 2.2 `MusicList` 类
@@ -90,15 +90,15 @@ From: crystal203.github.io
 歌曲。可以将若干行音符整合，也可从文件中读取音符。
 
 + `void setDelay(int _dctn)` 设置四分音符延时（毫秒）——优先于播放器设置的延时
-+ `void add(string s)` `void addk(string s)` 插入一行简谱格式或 `autopiano` 格式的音符
++ `void add(wstring s)` `void addk(wstring s)` 插入一行简谱格式或 `autopiano` 格式的音符
 + `void clear()` 清空歌曲
-+ `void readFile(string s)` 从文件中读取音符集
++ `void readFile(wstring s)` 从文件中读取音符集
 
 #### 2.3 `BGM` 类
 
 使用多线程，可使程序在运行同时播放歌曲。
 
-+ `void setMusic(string s)` 从文件中读取音符集并绑定
++ `void setMusic(wstring s)` 从文件中读取音符集并绑定
 + `void play()` 开始循环播放此音乐
 + `void stop()` 停止播放此音乐
 
@@ -147,7 +147,7 @@ signed main(){
 #include <conio.h>
 #include <mutex>
 #include <regex>
-#include <string.h>
+#include <wstring.h>
 #include <vector>
 #include <algorithm>
 #include <fstream>
@@ -157,9 +157,9 @@ signed main(){
 class MusicList{
 public:
 	int dctn=500;
-	std::vector <std::string> vec;
+	std::vector <std::wstring> vec;
 	~MusicList(){}
-	void add(std::string s){
+	void add(std::wstring s){
 		vec.push_back(s);
 	}
 	void clear(){
@@ -168,21 +168,21 @@ public:
 	void setDelay(int _dctn){
 		dctn=_dctn;
 	}
-	void readFile(std::string fileName=""){
+	void readFile(std::wstring fileName=""){
 		clear();
 		std::ifstream in(fileName);
 		in>>dctn;
-		std::string s;
+		std::wstring s;
 		while (getline(in,s)) add(s);
 		in.close();
 	}
-	MusicList(std::string fileName=""){
+	MusicList(std::wstring fileName=""){
 		vec.clear();
 		if (fileName!="") readFile(fileName);
 	}
 };
-bool isNumeric(std::string const &str){
-    return regex_match(str,std::regex("[(-|+)|][0-9]+"));
+bool isNumeric(std::wstring const &str){
+    return regex_match(str,std::regex(L"[(-|+)|][0-9]+"));
 }
 class MusicPlayer{
 private:
@@ -233,9 +233,9 @@ public:
 	std::mutex mu;
 	int ttag=0;
 	int tick1,tick2;
-	void play_single(std::string s,bool isMain){
+	void play_single(std::wstring s,bool isMain){
 		std::vector <int> nbuf;
-		s=s+' ';int n=s.size();
+		s=s+L' ';int n=s.size();
 		int ctn=32*21,vol=volume;
 		bool isChord=0;nbuf.clear();
 		int st=clock(),tick=0;
@@ -243,17 +243,17 @@ public:
 			if (ENDMUSIC) break;
 			char c=s[i];
 			switch (c){
-				case '[':case '{':{
+				case L'[':case L'{':{
 					assert(isChord==0);
 					isChord=1;
 					break;
 				}
-				case ']':case '}':{
+				case L']':case L'}':{
 					assert(isChord==1);
 					isChord=0;
 					break;
 				}
-				case ' ':{
+				case L' ':{
 					if (!isChord){
 						if (!nbuf.empty()){
 							for (int i=0;i<(int)nbuf.size();++i) if (nbuf[i]!=0) midiOutShortMsg(handle,nbuf[i]);nbuf.clear();
@@ -262,43 +262,43 @@ public:
 					}
 					break;
 				}
-				case '|':break;
-				case '_':{
+				case L'|':break;
+				case L'_':{
 					ctn/=2;
 					break;
 				}
-				case '*':{
+				case L'*':{
 					ctn/=3;
 					break;
 				}
-				case '&':{
+				case L'&':{
 					ctn/=7;
 					break;
 				}
-				case '%':{
+				case L'%':{
 					ctn/=5;
 					break;
 				}
-				case '.':{
+				case L'.':{
 					ctn*=1.5;
 					break;
 				}
-				case '-':{
+				case L'-':{
 					ctn+=32*21;
 					break;
 				}
-				case '0':{
+				case L'0':{
 					nbuf.push_back(Rest);
 					break;
 				}
 				default:{
-					assert(c>='1' && c<='7');
+					assert(c>=L'1' && c<=L'7');
 					int x=(int)c-49,lvl=3;
 					bool isSharp=0;
 					for (int j=i+1;j<n;++j){
-						if (s[j]=='^') lvl++;
-						else if (s[j]==',') lvl--;
-						else if (s[j]=='#') isSharp=1; 
+						if (s[j]==L'^') lvl++;
+						else if (s[j]==L',') lvl--;
+						else if (s[j]==L'#') isSharp=1; 
 						else break;
 						i++;
 					}
@@ -314,25 +314,25 @@ public:
 		mu.unlock();
 		return;
 	}
-	void play(std::string s1,std::string s2=""){
+	void play(std::wstring s1,std::wstring s2=L""){
 		STOP=0;tick1=0;tick2=0;
 		std::thread tune1(&MusicPlayer::play_single,this,s1,1);tune1.detach();
 		std::thread tune2(&MusicPlayer::play_single,this,s2,0);tune2.detach();
 		while (STOP<2);
 		if (DEBUG){
-			if (tick1==tick2) puts("Succ");
-			else printf("Warn: %d!=%d\n",tick1,tick2);			
+			if (tick1==tick2) puts(L"Succ");
+			else printf(L"Warn: %d!=%d\n",tick1,tick2);			
 		}
 	}
 	void playList(MusicList &m){
 		dctn=m.dctn;ENDMUSIC=0;
 		for (int i=0;i<(int)m.vec.size() && !ENDMUSIC;++i){
-			while (i<(int)m.vec.size() && (m.vec[i]=="" || isNumeric(m.vec[i]))){
+			while (i<(int)m.vec.size() && (m.vec[i]==L"" || isNumeric(m.vec[i]))){
 				if (isNumeric(m.vec[i])) setDelay(stoi(m.vec[i]));i++;
 			}
 			if (i>=(int)m.vec.size()) break;
-			std::string s1=m.vec[i],s2="";
-			if (i<(int)m.vec.size()-1 && m.vec[i+1]!="") s2=m.vec[i+1],i++;
+			std::wstring s1=m.vec[i],s2=L"";
+			if (i<(int)m.vec.size()-1 && m.vec[i+1]!=L"") s2=m.vec[i+1],i++;
 			play(s1,s2);
 		}
 	}
@@ -341,13 +341,13 @@ class BGM{
 public:
 	MusicPlayer player;
 	MusicList nowList;
-	BGM(std::string name,int volume=0x7f){
+	BGM(std::wstring name,int volume=0x7f){
 		nowList.readFile(name);player.setVolume(volume);
 	}
 	~BGM(){
 		player.ENDMUSIC=1;
 	}
-	void setMusic(std::string name){
+	void setMusic(std::wstring name){
 		nowList.readFile(name);
 	}
 	void play_thread(){

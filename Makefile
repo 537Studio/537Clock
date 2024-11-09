@@ -24,11 +24,12 @@ LINKOBJ  = 537main.o language.o tclass.o about.o console.o $(RES)
 INCS     = -I"./include"
 CXXINCS  = -I"./include"
 BIN      = 537Clock.exe
-RM       = del -f	# rm 无法正常使用，返回值2
+RM       = del	# rm -f 无法正常使用，返回值2
 
 .PHONY: all all-before all-after clean clean-custom
 
 all: all-before $(BIN) all-after
+	${BIN}
 
 clean: clean-custom
 	${RM} $(OBJ) $(BIN)

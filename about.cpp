@@ -38,17 +38,17 @@ void aboutThisApp(){
 	
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	tprint(APP_NAME_CN,20);
-	tprint("\t");
+	tprint(L"\t");
 	
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	tprint(TEXT_VERSION_CN,20);
-	tprint(" ");
+	tprint(L" ");
 	tprint(APP_VERSION);
-	tprint("\t");
+	tprint(L"\t");
 	
 	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_BLUE);
 	tprint(APP_IDEA_CN,20);
-	tprint("\n");
+	tprint(L"\n");
 	
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
 	tprint(APP_SUPPORT_CN);

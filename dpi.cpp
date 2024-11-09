@@ -29,15 +29,15 @@ void EnableHighDPI(){
 	GetClientRect(hd,&rect);
 	int cw1=(rect.right-rect.left),cw2=GetDeviceCaps(hdc,DESKTOPHORZRES);
     dpi=1.0*cw2/cw1;
-    std::cout<<"Enable high DPI: "<<dpi<<std::endl;
+    std::cout<<L"Enable high DPI: "<<dpi<<std::endl;
     HINSTANCE hUser32=LoadLibrary("User32.dll");
     if(hUser32){
-    	std::cout<<"Use User32.dll successful.\n\n";
+    	std::cout<<L"Use User32.dll successful.\n\n";
         typedef BOOL (WINAPI* LPSetProcessDPIAware)(void);
-        LPSetProcessDPIAware pSetProcessDPIAware=(LPSetProcessDPIAware)GetProcAddress(hUser32,"SetProcessDPIAware");
+        LPSetProcessDPIAware pSetProcessDPIAware=(LPSetProcessDPIAware)GetProcAddress(hUser32,L"SetProcessDPIAware");
         if(pSetProcessDPIAware)pSetProcessDPIAware();
         FreeLibrary(hUser32);
     }else{
-    	std::cout<<"Use User32.dll failed.\n\n";
+    	std::cout<<L"Use User32.dll failed.\n\n";
 	}
 }

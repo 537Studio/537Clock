@@ -4,14 +4,14 @@
 #include <windows.h> // include for version info constants
 
 
-A ICON "./resource/537ClockLogo_128x128.ico"
+A ICON "resource/537ClockLogo_128x128.ico"
 
 //
 // TO CHANGE VERSION INFORMATION, EDIT PROJECT OPTIONS...
 //
 1 VERSIONINFO
-FILEVERSION 2,0,0,0
-PRODUCTVERSION 2,0,0,0
+FILEVERSION 1,4,0,0
+PRODUCTVERSION 1,4,0,0
 FILETYPE VFT_APP
 {
   BLOCK "StringFileInfo"
@@ -19,14 +19,14 @@ FILETYPE VFT_APP
     BLOCK "080404E4"
     {
       VALUE "CompanyName", "537 Studio"
-      VALUE "FileVersion", "2.0.0.0"
+      VALUE "FileVersion", "1.4.0.0"
       VALUE "FileDescription", "537 Clock - Less is more"
-      VALUE "InternalName", "FTS Clock"
+      VALUE "InternalName", "537 Clock"
       VALUE "LegalCopyright", "Copyright (C) 537 Studio. 2023-2024. All rights reserved."
       VALUE "LegalTrademarks", "Copyright (C) 537 Clock Logo. 2023-2024. All rights reserved."
-      VALUE "OriginalFilename", "537 Clock"
+      VALUE "OriginalFilename", "FTS Clock"
       VALUE "ProductName", "537 Clock"
-      VALUE "ProductVersion", "2.0.0.0"
+      VALUE "ProductVersion", "1.4.0.0"
     }
   }
   BLOCK "VarFileInfo"

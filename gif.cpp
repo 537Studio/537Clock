@@ -260,10 +260,10 @@ void Gif::resetPlayState()
 //控制台显示Gif信息
 void Gif::info() const
 {
-	printf("Gif Paint Size: %d x %d\n", getWidth(), getHeight());
-	printf("Gif Normal Size: %d x %d\n", getOrginWidth(), getOrginHeight());
+	printf(L"Gif Paint Size: %d x %d\n", getWidth(), getHeight());
+	printf(L"Gif Normal Size: %d x %d\n", getOrginWidth(), getOrginHeight());
 	int frameCnt = getFrameCount();
-	printf("FPS: %d\n", getFrameCount());
+	printf(L"FPS: %d\n", getFrameCount());
 	/*
 	printf("The delay time of the frame:\n");
 	
