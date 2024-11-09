@@ -34,7 +34,7 @@ Copyright (C) 537 Studio. 2023-2024. All rights reserved.
 #define APP_EMAIL L"hello@537studio.com"
 
 #define APP_SUPPORT_EN L"Powered by 537 Studio"
-#define APP_SUPPORT_CN L"由 537工作室 提供支持"
+#define APP_SUPPORT_CN L"\033[31m由 537工作室 提供支持\033[0m"
 #define APP_SUPPORT_TRCN L"由 537 工作室 提供支援"
 
 #define APP_COPYRIGHT_EN L"Copyright (C) 537 Studio. 2023-2024. All rights reserved."
@@ -65,3 +65,41 @@ Copyright (C) 537 Studio. 2023-2024. All rights reserved.
 
 
 #endif
+/*
+基本颜色代码
+
+\033[0m - 重置为默认格式
+\033[1m - 加粗
+\033[3m - 斜体
+\033[4m - 下划线
+\033[5m - 闪烁
+\033[7m - 反显（前景和背景色互换）
+\033[8m - 不可见
+
+\033[30m - 黑色
+\033[31m - 红色
+\033[32m - 绿色
+\033[33m - 黄色
+\033[34m - 蓝色
+\033[35m - 紫色
+\033[36m - 青色
+\033[37m - 白色
+
+\033[90m	灰色（高亮黑色）
+\033[91m	红色（高亮）
+\033[92m	绿色（高亮）
+\033[93m	黄色（高亮）
+\033[94m	蓝色（高亮）
+\033[95m	紫色（高亮）
+\033[96m	青色（高亮）
+\033[97m	白色（高亮）
+
+\033[40m - 黑色背景
+\033[41m - 红色背景
+\033[42m - 绿色背景
+\033[43m - 黄色背景
+\033[44m - 蓝色背景
+\033[45m - 紫色背景
+\033[46m - 青色背景
+\033[47m - 白色背景
+*/
