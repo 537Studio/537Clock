@@ -38,5 +38,18 @@ void aboutThisApp(){
 	
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	tprint(APP_NAME_CN,20);
+	tprint("\t");
 	
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	tprint(TEXT_VERSION_CN,20);
+	tprint(" ");
+	tprint(APP_VERSION);
+	tprint("\t");
+	
+	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_BLUE);
+	tprint(APP_IDEA_CN,20);
+	tprint("\n");
+	
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+	tprint(APP_SUPPORT_CN);
 }
