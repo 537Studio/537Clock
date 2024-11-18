@@ -9,8 +9,8 @@ Copyright (C) 537 Studio. 2023-2024. All rights reserved.
 #ifndef _FTSCLOCK_CONSOLE_H_
 #define _FTSCLOCK_CONSOLE_H_
 
-#include <windows.h>
+//#include <windows.h>
 
-void SetConsoleColor(WORD color);
+//void SetConsoleColor(WORD color);
 
 #endif

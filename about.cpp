@@ -6,50 +6,39 @@ about.cpp
 
 Copyright (C) 537 Studio. 2023-2024. All rights reserved.
 */
-#include <windows.h>
-#include "include/tclass.h"
-#include "include/console.h"
-#include "appinfo.h"
+#include <tclass.h>
+#include <console.h>
+#include "537Clock_AppInfo.h"
 void aboutThisApp(){
-	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	tprint(APP_LOGO_L1);
-	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_BLUE);
 	tprint(APP_DEVELOPER_LOGO_L1,50);
 	
-	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	tprint(APP_LOGO_L2);
-	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_BLUE);
 	tprint(APP_DEVELOPER_LOGO_L2,50);
 	
-	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	tprint(APP_LOGO_L3);
-	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_BLUE);
 	tprint(APP_DEVELOPER_LOGO_L3,50);
 	
-	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	tprint(APP_LOGO_L4);
-	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_BLUE);
 	tprint(APP_DEVELOPER_LOGO_L4,50);
 	
-	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	tprint(APP_LOGO_L5);
-	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_BLUE);
 	tprint(APP_DEVELOPER_LOGO_L5,50);
 	
-	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	tprint(APP_NAME_CN,20);
 	tprint(L"\t");
 	
-	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	tprint(TEXT_VERSION_CN,20);
 	tprint(L" ");
 	tprint(APP_VERSION);
 	tprint(L"\t");
 	
-	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_BLUE);
 	tprint(APP_IDEA_CN,20);
-	tprint(L"\n");
-	
-	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+	tprint(L"\t");
+
 	tprint(APP_SUPPORT_CN);
+	tprint(L"\n");
+
+	tprint(TEXT_TIP_CN,20);
+	tprint(L"\n");
 }

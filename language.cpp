@@ -6,8 +6,9 @@ language.cpp
 
 Copyright (C) 537 Studio. 2023-2024. All rights reserved.
 */
+/*
 #include "include/language.h"
-#include "include/tclass.h"
+#include <tclass.h>
 #include <iostream>
 #include <string>
 #include <locale>
@@ -37,6 +38,7 @@ void setlanguage(){
 			break;
 	}
 }
+*/
 /*
 简体中文
 Windows: "zh_CN" 或 "zh_CN.UTF-8"

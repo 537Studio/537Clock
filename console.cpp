@@ -6,9 +6,11 @@ console.cpp
 
 Copyright (C) 537 Studio. 2023-2024. All rights reserved.
 */
-#include "include/console.h"
+/*
+#include <console.h>
 
 void SetConsoleColor(WORD color){  
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);  
 	SetConsoleTextAttribute(hConsole, color);  
 }
+*/

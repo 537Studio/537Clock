@@ -4,27 +4,27 @@
 MODE=RELEASE
 
 ifeq ($(MODE), DEBUG)
-CPP      = g++.exe -DDEBUG
-CC       = gcc.exe -DDEBUG
-LIBS     = -static-libgcc -L"./lib" -lgraphics -lgdiplus -luuid -lmsimg32 -lgdi32 -limm32 -lole32 -loleaut32 -lwinmm -g3
+CPP      = g++ -DDEBUG
+CC       = gcc -DDEBUG
+LIBS     = -static-libgcc -L"./lib" #-lgraphics -lgdiplus -luuid -lmsimg32 -lgdi32 -limm32 -lole32 -loleaut32 -lwinmm -g3
 CXXFLAGS = $(CXXINCS) -std=c++11 -g3 -DDEBUG
 CFLAGS   = $(INCS) -std=c++11 -g3
 else
-CPP      = g++.exe
-CC       = gcc.exe
-LIBS     = -static-libgcc -L"./lib" -lgraphics -lgdiplus -luuid -lmsimg32 -lgdi32 -limm32 -lole32 -loleaut32 -lwinmm
+CPP      = g++
+CC       = gcc
+LIBS     = -static-libgcc -L"./lib" #-lgraphics -lgdiplus -luuid -lmsimg32 -lgdi32 -limm32 -lole32 -loleaut32 -lwinmm
 CXXFLAGS = $(CXXINCS) -std=c++11
 CFLAGS   = $(INCS) -std=c++11
 endif
 
-WINDRES  = windres.exe
-RES      = 537Clock_AppInfo.res
-OBJ      = 537main.o language.o tclass.o about.o console.o $(RES)
-LINKOBJ  = 537main.o language.o tclass.o about.o console.o $(RES)
+#WINDRES  = windres
+#RES      = 537Clock_AppInfo.res
+OBJ      = 537main.o language.o tclass.o about.o console.o# $(RES)
+LINKOBJ  = 537main.o language.o tclass.o about.o console.o# $(RES)
 INCS     = -I"./include"
 CXXINCS  = -I"./include"
-BIN      = 537Clock.exe
-RM       = del	# rm -f 无法正常使用，返回值2
+BIN      = "./537Clock"
+RM       = rm -f	# rm -f 无法正常使用，返回值2
 
 .PHONY: all all-before all-after clean clean-custom
 
@@ -52,6 +52,6 @@ about.o: about.cpp
 console.o: console.cpp
 	$(CPP) -c console.cpp -o console.o $(CXXFLAGS)
 
-537Clock_AppInfo.res: 537Clock_AppInfo.rc 
-	$(WINDRES) -i 537Clock_AppInfo.rc --input-format=rc -o 537Clock_AppInfo.res -O coff 
+#537Clock_AppInfo.res: 537Clock_AppInfo.rc 
+#	$(WINDRES) -i 537Clock_AppInfo.rc --input-format=rc -o 537Clock_AppInfo.res -O coff 
 
