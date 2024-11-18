@@ -8,7 +8,7 @@ Copyright (C) 537 Studio. 2023-2024. All rights reserved.
 */
 #include <iostream>
 #include <tclass.h>
-//#include "include/language.h"
+//#include <language.h>
 #include <about.h> 
 #include "537Clock_AppInfo.h"
 #include <locale>

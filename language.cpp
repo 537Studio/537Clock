@@ -7,7 +7,7 @@ language.cpp
 Copyright (C) 537 Studio. 2023-2024. All rights reserved.
 */
 /*
-#include "include/language.h"
+#include <language.h>
 #include <tclass.h>
 #include <iostream>
 #include <string>
