@@ -1,6 +1,7 @@
 {
     "C_Cpp.errorSquiggles": "disabled",
     "files.associations": {
-        "xlocale": "cpp"
+        "xlocale": "cpp",
+        "thread": "cpp"
     }
 }

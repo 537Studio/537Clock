@@ -7,6 +7,9 @@ tclass.cpp
 Copyright (C) 537 Studio. 2023-2024. All rights reserved.
 */
 #include "include/tclass.h"
+#ifndef _GLIBCXX_THREAD_ABI_COMPAT
+#define _GLIBCXX_THREAD_ABI_COMPAT
+#endif
 #include <thread>
 #include <chrono>
 void tsleep(int milliseconds){  
