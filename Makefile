@@ -2,6 +2,7 @@
 # Makefile created by Dev-C++ 5.11, edited by Sean537 in 537 Studio
 
 MODE=RELEASE
+SYS=UNIX
 
 ifeq ($(MODE), DEBUG)
 CPP      = g++ -DDEBUG
@@ -17,14 +18,23 @@ CXXFLAGS = $(CXXINCS) -std=c++11
 CFLAGS   = $(INCS) -std=c++11
 endif
 
-#WINDRES  = windres
-#RES      = 537Clock_AppInfo.res
-OBJ      = 537main.o language.o tclass.o about.o console.o# $(RES)
-LINKOBJ  = 537main.o language.o tclass.o about.o console.o# $(RES)
+ifeq ($(SYS), WINDOWS)
+WINDRES  = windres
+RES      = 537Clock_AppInfo.res
+OBJ      = 537main.o language.o tclass.o about.o console.o $(RES)
+LINKOBJ  = 537main.o language.o tclass.o about.o console.o $(RES)
+BIN      = "./537Clock.exe"
+RM       = del
+else
+OBJ      = 537main.o language.o tclass.o about.o console.o
+LINKOBJ  = 537main.o language.o tclass.o about.o console.o
+BIN      = "./537Clock"
+RM       = rm -f
+endif
+
 INCS     = -I"./include"
 CXXINCS  = -I"./include"
-BIN      = "./537Clock"
-RM       = rm -f	# rm -f 无法正常使用，返回值2
+
 
 .PHONY: all all-before all-after clean clean-custom
 
@@ -52,6 +62,6 @@ about.o: about.cpp
 console.o: console.cpp
 	$(CPP) -c console.cpp -o console.o $(CXXFLAGS)
 
-#537Clock_AppInfo.res: 537Clock_AppInfo.rc 
-#	$(WINDRES) -i 537Clock_AppInfo.rc --input-format=rc -o 537Clock_AppInfo.res -O coff 
+537Clock_AppInfo.res: 537Clock_AppInfo.rc 
+	$(WINDRES) -i 537Clock_AppInfo.rc --input-format=rc -o 537Clock_AppInfo.res -O coff 
 
